@@ -1,0 +1,209 @@
+.header {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    top: 114px;
+    background-color: $background-white;
+  }
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.header__top label {
+  cursor: pointer;
+
+  svg {
+    fill: $black;
+    stroke: none;
+  }
+}
+
+.header__top input {
+  padding: 10px;
+  font-family: "Poppins", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
+  border: none;
+  border-radius: 0;
+  width: 175px;
+
+  &::placeholder {
+    font-family: "Poppins", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $brown;
+  }
+}
+
+.header__nav-toggle {
+  display: none;
+}
+
+.header__logo {
+  position: absolute;
+  top: 30px;
+  transform: translateX(-33px);
+}
+
+.header__user-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 11px;
+  max-width: 500px;
+}
+
+.header__link {
+  font-weight: 500;
+  font-size: 14px;
+  color: $black;
+  margin-right: 35px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: $brown;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.header__nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.header__nav-item {
+  padding: 20px 0 20px;
+  margin-right: 25px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.header__nav-link {
+  font-weight: 500;
+  color: $black;
+  padding: 5px;
+
+  &:hover {
+    color: $brown;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.header__tablet-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.header__tablet-item {
+  padding: 10px 0;
+}
+
+.header__tablet-item a {
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+
+  &:hover {
+    color: $grey;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.header__tablet-login {
+  margin-bottom: 65px;
+  padding: 15px 0;
+  font-weight: 500;
+  font-size: 18px;
+  color: $white;
+
+  &:hover {
+    color: $grey;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.header__wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.header__wrapper--active {
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: $brown;
+}
+
+.header__wrapper svg {
+  stroke: $black;
+}
+
+.header__wrapper--active svg,
+.header__wrapper--active .header__logo svg {
+  stroke: #fff;
+}
+
+.header__wrapper .header__nav-toggle,
+.header__wrapper .header__link {
+
+  &:hover svg,
+  &:focus svg {
+    stroke: $brown;
+  }
+
+  &:active svg {
+    stroke: $grey;
+  }
+}
+
+.header__wrapper--active .header__nav-toggle,
+.header__wrapper--active .header__link {
+
+  &:hover svg,
+  &:focus svg {
+    stroke: $black;
+  }
+}
