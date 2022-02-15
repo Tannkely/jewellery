@@ -1,0 +1,108 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 463px;
+  padding: 0 35px;
+  color: $white;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  text-align: center;
+  background-color: $brown;
+  background-image: url("../img/promo-desktop.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  @media (min-resolution: 2dppx) {
+      background-image: url("../img/promo-desktop@2x.jpg");
+  }
+
+  @media (max-width: 1023px) {
+      background-image: url("../img/promo-tablet.jpg");
+
+      @media (min-resolution: 2dppx) {
+          background-image: url("../img/promo-tablet@2x.jpg");
+      }
+  }
+}
+
+.promo h2 {
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  @media (max-width: 1023px) {
+      padding-right: 18px;
+  }
+
+  @media (max-width: 767px) {
+      font-size: 38px;
+      margin: 15px 0 5px;
+      padding-right: 0;
+  }
+}
+
+.promo p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 49px;
+  font-family: "Cormorant Garamond Italic", "Georgia", serif;
+  margin-bottom: 0;
+
+  @media (max-width: 1023px) {
+      padding-right: 20px;
+  }
+
+  @media (max-width: 767px) {
+      font-size: 34px;
+      padding-right: 0;
+  }
+}
+
+.promo--catalog {
+  min-height: 261px;
+  background-image: url("../img/promo-catalog-desktop.jpg");
+
+  @media (min-resolution: 2dppx) {
+      background-image: url("../img/promo-catalog-desktop@2x.jpg");
+  }
+
+  @media (max-width: 1023px) {
+      background-image: url("../img/promo-catalog-tablet.jpg");
+
+      @media (min-resolution: 2dppx) {
+          background-image: url("../img/promo-catalog-tablet@2x.jpg");
+      }
+  }
+
+  @media (max-width: 767px) {
+      background-image: url("../img/promo-catalog-mobile.jpg");
+
+      @media (min-resolution: 2dppx) {
+          background-image: url("../img/promo-catalog-mobile@2x.jpg");
+      }
+  }
+}
+
+.promo--catalog h2 {
+  font-size: 34px;
+  letter-spacing: normal;
+
+  @media (max-width: 1023px) {
+      padding-right: 0;
+      margin: 10px 0 14px;
+  }
+}
+
+.promo--catalog p {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 29px;
+
+  @media (max-width: 1023px) {
+      padding-right: 0;
+  }
+}
