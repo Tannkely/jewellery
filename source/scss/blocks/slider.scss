@@ -6,20 +6,20 @@
   text-align: center;
 
   @media (max-width: 1200px) {
-      width: calc(100vw - 60px);
+    width: calc(100vw - 60px);
   }
 
   @media (max-width: 1200px) {
-      width: calc(100vw - 90px);
+    width: calc(100vw - 90px);
   }
 
   @media (max-width: 1023px) {
-      padding-top: 46px;
+    padding-top: 46px;
   }
 
   @media (max-width: 767px) {
-      width: calc(100vw - 30px);
-      padding-top: 42px;
+    width: calc(100vw - 30px);
+    padding-top: 42px;
   }
 }
 
@@ -31,7 +31,7 @@
   font-size: 34px;
 
   @media (max-width: 767px) {
-      padding: 30px 0;
+    padding: 30px 0;
   }
 }
 
@@ -42,11 +42,11 @@
   padding: 5px;
 
   &:hover {
-      color: $brown;
+    color: $brown;
   }
 
   &:active {
-      opacity: 0.7;
+    opacity: 0.7;
   }
 }
 
@@ -58,13 +58,13 @@
   margin-bottom: 42px;
 
   @media (max-width: 1023px) {
-      padding-top: 50px;
-      margin-bottom: 35px;
+    padding-top: 50px;
+    margin-bottom: 35px;
   }
 
   @media (max-width: 767px) {
-      padding-top: 45px;
-      margin-bottom: 30px;
+    padding-top: 45px;
+    margin-bottom: 30px;
   }
 }
 
@@ -75,8 +75,8 @@
 
   &:hover,
   &:focus {
-      outline: none;
-      box-shadow: 0 6px 12px $grey;
+    outline: none;
+    box-shadow: 0 6px 12px $grey;
   }
 }
 
@@ -87,7 +87,7 @@
   margin-bottom: 22px;
 
   @media (max-width: 767px) {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
 
@@ -107,31 +107,31 @@
   justify-content: center;
 
   .swiper-pagination-bullet {
-      padding: 6px;
-      font-weight: 500;
-      color: $grey;
-      cursor: pointer;
+    padding: 6px;
+    font-weight: 500;
+    color: $grey;
+    cursor: pointer;
 
-      &:hover {
-          color: $brown;
-      }
+    &:hover {
+      color: $brown;
+    }
 
-      &:active {
-          opacity: 0.7;
-      }
+    &:active {
+      opacity: 0.7;
+    }
   }
 
   .swiper-pagination-bullet-active {
+    color: $black;
+    cursor: default;
+
+    &:hover {
       color: $black;
-      cursor: default;
+    }
 
-      &:hover {
-          color: $black;
-      }
-
-      &:active {
-          opacity: 1;
-      }
+    &:active {
+      opacity: 1;
+    }
   }
 }
 
@@ -143,11 +143,11 @@
   justify-content: space-between;
 
   @media (max-width: 1023px) {
-      top: 112px;
+    top: 112px;
   }
 
   @media (max-width: 767px) {
-      display: none;
+    display: none;
   }
 }
 
@@ -158,21 +158,21 @@
   cursor: pointer;
 
   svg {
-      stroke: $brown;
+    stroke: $brown;
 
-      @media (max-width: 1023px) {
-          width: 36px;
-          height: 15px;
-      }
+    @media (max-width: 1023px) {
+      width: 36px;
+      height: 15px;
+    }
   }
 
   &:hover svg,
   &:focus svg {
-      stroke: $black;
+    stroke: $black;
   }
 
   &:active {
-      opacity: 0.7;
+    opacity: 0.7;
   }
 }
 
@@ -185,7 +185,7 @@
   cursor: default;
 
   svg {
-      stroke: $grey;
+    stroke: $grey;
   }
 }
 
