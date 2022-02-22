@@ -1,0 +1,37 @@
+.page-content {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+
+  &--filter {
+    margin-top: 0;
+    padding: 0 25px;
+  }
+
+  &--basket {
+    margin-top: 0;
+    padding: 0 15px;
+  }
+
+  &--login {
+    margin-top: 0;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .page-content {
+    margin-top: 126px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .page-content {
+    margin-top: 92px; 
+
+    &--login {
+      margin-top: 0;
+      padding: 0 25px;
+    }
+  }
+}
