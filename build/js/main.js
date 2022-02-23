@@ -1,40 +1,36 @@
-'use strict';
-
 // аккордеон для блока FAQ
 
 (function () {
-  var faqList = document.querySelector('.faq__list');
+  let faqList = document.querySelector('.faq__list');
 
   if (faqList) {
     faqList.classList.remove('faq__list--nojs');
 
-    var toggleFaqItem = function (item) {
+    let toggleFaqItem = function (item) {
       item.classList.toggle('faq__item--open');
     };
 
-    faqList.addEventListener('click', function (evt) {
-      var faqItem = evt.target.closest('li');
+    faqList.addEventListener('click', (evt) => {
+      let faqItem = evt.target.closest('li');
       toggleFaqItem(faqItem);
     });
   }
 
 })();
 
-'use strict';
-
 // аккордеон для фильтра
 
 (function () {
 
-  var filter = document.querySelector('.filter');
-  var filterButtons = document.querySelectorAll('.filter__item > button');
+  let filter = document.querySelector('.filter');
+  let filterButtons = document.querySelectorAll('.filter__item > button');
 
   if (filter && filterButtons) {
 
     filter.classList.remove('filter--nojs');
 
-    for (var i = 0; i < filterButtons.length; i++) {
-      filterButtons[i].addEventListener('click', function (evt) {
+    for (let i = 0; i < filterButtons.length; i++) {
+      filterButtons[i].addEventListener('click', (evt) => {
         evt.target.parentNode.classList.toggle('filter__item--open');
       });
     }
@@ -42,18 +38,16 @@
 
 })();
 
-'use strict';
-
 // мобильное меню - начиная с планшетной версии
 
 (function () {
-  var pageHeader = document.querySelector('.page-header');
-  var headerToggle = document.querySelector('.page-header__toggle');
+  let pageHeader = document.querySelector('.page-header');
+  let headerToggle = document.querySelector('.page-header__toggle');
 
   if (pageHeader && headerToggle) {
     pageHeader.classList.remove('page-header--nojs');
 
-    headerToggle.addEventListener('click', function () {
+    headerToggle.addEventListener('click', () => {
       if (pageHeader.classList.contains('page-header--closed')) {
         pageHeader.classList.remove('page-header--closed');
         pageHeader.classList.add('page-header--opened');
@@ -66,31 +60,29 @@
 
 })();
 
-'use strict';
-
 // модальные окна
 
 (function () {
 
-  var modalLoginOpen = document.querySelector('.modal-open--login');
-  var modalLogin = document.querySelector('.modal--login');
-  var modalLoginClose = document.querySelector('.modal__close--login');
-  var loginForm = document.querySelector('.login__form');
+  let modalLoginOpen = document.querySelector('.modal-open--login');
+  let modalLogin = document.querySelector('.modal--login');
+  let modalLoginClose = document.querySelector('.modal__close--login');
+  let loginForm = document.querySelector('.login__form');
 
-  var modalBasketOpen = document.querySelectorAll('.modal-open--basket');
-  var modalBasket = document.querySelector('.modal--basket');
-  var modalBasketClose = document.querySelector('.modal__close--basket');
+  let modalBasketOpen = document.querySelectorAll('.modal-open--basket');
+  let modalBasket = document.querySelector('.modal--basket');
+  let modalBasketClose = document.querySelector('.modal__close--basket');
 
-  var modalFilterOpen = document.querySelector('.catalog__filter-button');
-  var modalFilter = document.querySelector('.filter');
-  var modalFilterClose = document.querySelector('.filter__modal-close');
+  let modalFilterOpen = document.querySelector('.catalog__filter-button');
+  let modalFilter = document.querySelector('.filter');
+  let modalFilterClose = document.querySelector('.filter__modal-close');
 
-  var body = document.querySelector('body');
+  let body = document.querySelector('body');
 
-  var email = document.querySelector('[id=email]');
+  let email = document.querySelector('[id=email]');
 
-  var isStorage = true;
-  var emailStorage = '';
+  let isStorage = true;
+  let emailStorage = '';
 
   try {
     emailStorage = localStorage.getItem('emailStorage');
@@ -98,7 +90,15 @@
     isStorage = false;
   }
 
-  var setVisible = function (visible) {
+  let escapeClickHandler = function (evt) {
+    if (evt.key === window.utils.KeyCode.ESCAPE) {
+      evt.preventDefault();
+      // eslint-disable-next-line no-use-before-define
+      setVisible(false);
+    }
+  };
+
+  let setVisible = function (visible) {
     if (visible) {
       body.classList.add('overlay--open');
       document.addEventListener('keydown', escapeClickHandler);
@@ -114,38 +114,31 @@
     }
   };
 
-  var escapeClickHandler = function (evt) {
-    if (evt.key === window.utils.KeyCode.ESCAPE) {
-      evt.preventDefault();
-      setVisible(false);
-    }
-  };
-
-  var createOverlay = function () {
-    var overlay = document.createElement('div');
+  let createOverlay = function () {
+    let overlay = document.createElement('div');
     overlay.classList.add('overlay');
     body.appendChild(overlay);
 
-    overlay.addEventListener('click', function (overlayEvt) {
+    overlay.addEventListener('click', (overlayEvt) => {
       if (overlayEvt.target === overlay) {
         setVisible(false);
       }
     });
   };
 
-  var modalOpenHandler = function (modal) {
+  let modalOpenHandler = function (modal) {
     modal.classList.add('modal-show');
     createOverlay();
     setVisible(true);
   };
 
-  var modalCloseHandler = function (evt) {
+  let modalCloseHandler = function (evt) {
     evt.preventDefault();
     setVisible(false);
   };
 
   if (modalLoginOpen && modalLogin) {
-    modalLoginOpen.addEventListener('click', function (evt) {
+    modalLoginOpen.addEventListener('click', (evt) => {
       evt.preventDefault();
       modalOpenHandler(modalLogin);
       email.focus();
@@ -161,7 +154,7 @@
   }
 
   if (loginForm) {
-    loginForm.addEventListener('submit', function (evt) {
+    loginForm.addEventListener('submit', (evt) => {
       if (!email.value) {
         evt.preventDefault();
       } else {
@@ -173,8 +166,8 @@
   }
 
   if (modalBasketOpen && modalBasket) {
-    for (var i = 0; i < modalBasketOpen.length; i++) {
-      modalBasketOpen[i].addEventListener('click', function (evt) {
+    for (let i = 0; i < modalBasketOpen.length; i++) {
+      modalBasketOpen[i].addEventListener('click', (evt) => {
         evt.preventDefault();
         modalOpenHandler(modalBasket);
       });
@@ -186,7 +179,7 @@
   }
 
   if (modalFilterOpen && modalFilter) {
-    modalFilterOpen.addEventListener('click', function (evt) {
+    modalFilterOpen.addEventListener('click', (evt) => {
       evt.preventDefault();
       modalOpenHandler(modalFilter);
       modalFilter.classList.add('filter--modal-open');
@@ -199,50 +192,49 @@
 
 })();
 
-'use strict';
-
 // слайдер
 
 (function () {
 
-  var PictureCount = {
+  let PictureCount = {
     DESKTOP: 4,
     TABLET: 2,
   };
 
-  var mobile = window.matchMedia('(max-width: 767px)');
-  var tablet = window.matchMedia('(max-width: 1023px)');
+  let mobile = window.matchMedia('(max-width: 767px)');
+  let tablet = window.matchMedia('(max-width: 1023px)');
 
-  var list = document.querySelector('.slider__list');
-  var items = document.querySelectorAll('.slider__item');
-  var buttonLeft = document.querySelector('.slider__button--left');
-  var buttonRight = document.querySelector('.slider__button--right');
+  let list = document.querySelector('.slider__list');
+  let items = document.querySelectorAll('.slider__item');
+  let buttonLeft = document.querySelector('.slider__button--left');
+  let buttonRight = document.querySelector('.slider__button--right');
 
-  var wrapperWidth; // вычисляемая под конкретное разрешение ширина контейнера
-  var itemWidth; // вычисляемая под конкретное разрешение ширина 1 слайда
+  let wrapperWidth; // вычисляемая под конкретное разрешение ширина контейнера
+  let itemWidth; // вычисляемая под конкретное разрешение ширина 1 слайда
 
-  var positionLeftItem = 0;
-  var transform = 0;
+  let positionLeftItem = 0;
+  // eslint-disable-next-line no-unused-vars
+  let transform = 0;
 
-  var step; // шаг
-  var itemsArray = [];
+  let step; // шаг
+  let itemsArray = [];
 
-  var startX = 0; // для мобильного тача - начало перемещения
+  let startX = 0; // для мобильного тача - начало перемещения
 
   if (items) {
-    items.forEach(function (item, index) {
+    items.forEach((item, index) => {
       itemsArray.push({item: item, position: index, transform: 0});
     });
   }
 
-  var position = {
+  let position = {
     getMin: 0,
     getMax: itemsArray.length - 1,
   };
 
-  var count; // временная переменная для определения количества изображений на адаптиве
+  let count; // временная переменная для определения количества изображений на адаптиве
 
-  var changeSizeHandler = function (evt) {
+  let changeSizeHandler = function (evt) {
 
     if (evt.matches) {
       count = PictureCount.TABLET;
@@ -258,17 +250,11 @@
 
       positionLeftItem = 0;
       transform = 0;
-      list.style.transform = 'translateX(' + transform + '%)';
+      list.style.transform = 'translateX(, &{transform}!%)';
     }
   };
 
-  var setMobileHandler = function (evt) {
-    if (evt.matches) {
-      setMobileTouch();
-    }
-  };
-
-  var buttonRightClickHandler = function () {
+  let buttonRightClickHandler = function () {
     if (positionLeftItem + count >= position.getMax) {
       return;
     }
@@ -276,10 +262,36 @@
     positionLeftItem = positionLeftItem + count;
 
     transform -= step * count;
-    list.style.transform = 'translateX(' + transform + '%)';
+    list.style.transform = 'translateX(, &{transform}%)';
   };
 
-  var buttonLeftClickHandler = function () {
+  let setMobileTouch = function () {
+    if (list) {
+      list.addEventListener('touchstart', (evt) => {
+        startX = evt.changedTouches[0].clientX;
+      });
+
+      list.addEventListener('touchend', (evt) => {
+        let endX = evt.changedTouches[0].clientX;
+        let deltaX = endX - startX;
+
+        if (deltaX > 50) {
+          buttonRightClickHandler();
+        } else if (deltaX < -50) {
+          // eslint-disable-next-line no-use-before-define
+          buttonLeftClickHandler();
+        }
+      });
+    }
+  };
+
+  let setMobileHandler = function (evt) {
+    if (evt.matches) {
+      setMobileTouch();
+    }
+  };
+
+  let buttonLeftClickHandler = function () {
     if (positionLeftItem <= position.getMin) {
       return;
     }
@@ -287,26 +299,7 @@
     positionLeftItem = positionLeftItem - count;
     transform += step * count;
 
-    list.style.transform = 'translateX(' + transform + '%)';
-  };
-
-  var setMobileTouch = function () {
-    if (list) {
-      list.addEventListener('touchstart', function (evt) {
-        startX = evt.changedTouches[0].clientX;
-      });
-
-      list.addEventListener('touchend', function (evt) {
-        var endX = evt.changedTouches[0].clientX;
-        var deltaX = endX - startX;
-
-        if (deltaX > 50) {
-          buttonRightClickHandler();
-        } else if (deltaX < -50) {
-          buttonLeftClickHandler();
-        }
-      });
-    }
+    list.style.transform = 'translateX(, &{transform}%)';
   };
 
   if (buttonLeft && buttonRight) {
@@ -321,38 +314,6 @@
   setMobileHandler(mobile);
 
 })();
-
-'use strict';
-
-// табы для карточки товара
-
-(function () {
-
-  var tabLinks = document.querySelectorAll('.card__tabs-menu label');
-  var tabItems = document.querySelectorAll('.card__tabs-item');
-
-  var linksArray = Array.from(tabLinks);
-
-  if (linksArray && tabItems) {
-
-    for (var i = 0; i < linksArray.length; i++) {
-      linksArray[i].addEventListener('click', function (evt) {
-
-        for (var j = 0; j < tabItems.length; j++) {
-          tabItems[j].classList.remove('card__tabs-item--active');
-        }
-
-        var index = linksArray.indexOf(evt.target);
-
-        tabItems[index].classList.add('card__tabs-item--active');
-      });
-    }
-
-  }
-
-})();
-
-'use strict';
 
 // утилитарный модуль - экспортирует общие функции и переменные для всех модулей
 

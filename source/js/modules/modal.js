@@ -1,28 +1,26 @@
-'use strict';
-
 // модальные окна
 
 (function () {
 
-  var modalLoginOpen = document.querySelector('.modal-open--login');
-  var modalLogin = document.querySelector('.modal--login');
-  var modalLoginClose = document.querySelector('.modal__close--login');
-  var loginForm = document.querySelector('.login__form');
+  let modalLoginOpen = document.querySelector('.modal-open--login');
+  let modalLogin = document.querySelector('.modal--login');
+  let modalLoginClose = document.querySelector('.modal__close--login');
+  let loginForm = document.querySelector('.login__form');
 
-  var modalBasketOpen = document.querySelectorAll('.modal-open--basket');
-  var modalBasket = document.querySelector('.modal--basket');
-  var modalBasketClose = document.querySelector('.modal__close--basket');
+  let modalBasketOpen = document.querySelectorAll('.modal-open--basket');
+  let modalBasket = document.querySelector('.modal--basket');
+  let modalBasketClose = document.querySelector('.modal__close--basket');
 
-  var modalFilterOpen = document.querySelector('.catalog__filter-button');
-  var modalFilter = document.querySelector('.filter');
-  var modalFilterClose = document.querySelector('.filter__modal-close');
+  let modalFilterOpen = document.querySelector('.catalog__filter-button');
+  let modalFilter = document.querySelector('.filter');
+  let modalFilterClose = document.querySelector('.filter__modal-close');
 
-  var body = document.querySelector('body');
+  let body = document.querySelector('body');
 
-  var email = document.querySelector('[id=email]');
+  let email = document.querySelector('[id=email]');
 
-  var isStorage = true;
-  var emailStorage = '';
+  let isStorage = true;
+  let emailStorage = '';
 
   try {
     emailStorage = localStorage.getItem('emailStorage');
@@ -30,7 +28,15 @@
     isStorage = false;
   }
 
-  var setVisible = function (visible) {
+  let escapeClickHandler = function (evt) {
+    if (evt.key === window.utils.KeyCode.ESCAPE) {
+      evt.preventDefault();
+      // eslint-disable-next-line no-use-before-define
+      setVisible(false);
+    }
+  };
+
+  let setVisible = function (visible) {
     if (visible) {
       body.classList.add('overlay--open');
       document.addEventListener('keydown', escapeClickHandler);
@@ -46,38 +52,31 @@
     }
   };
 
-  var escapeClickHandler = function (evt) {
-    if (evt.key === window.utils.KeyCode.ESCAPE) {
-      evt.preventDefault();
-      setVisible(false);
-    }
-  };
-
-  var createOverlay = function () {
-    var overlay = document.createElement('div');
+  let createOverlay = function () {
+    let overlay = document.createElement('div');
     overlay.classList.add('overlay');
     body.appendChild(overlay);
 
-    overlay.addEventListener('click', function (overlayEvt) {
+    overlay.addEventListener('click', (overlayEvt) => {
       if (overlayEvt.target === overlay) {
         setVisible(false);
       }
     });
   };
 
-  var modalOpenHandler = function (modal) {
+  let modalOpenHandler = function (modal) {
     modal.classList.add('modal-show');
     createOverlay();
     setVisible(true);
   };
 
-  var modalCloseHandler = function (evt) {
+  let modalCloseHandler = function (evt) {
     evt.preventDefault();
     setVisible(false);
   };
 
   if (modalLoginOpen && modalLogin) {
-    modalLoginOpen.addEventListener('click', function (evt) {
+    modalLoginOpen.addEventListener('click', (evt) => {
       evt.preventDefault();
       modalOpenHandler(modalLogin);
       email.focus();
@@ -93,7 +92,7 @@
   }
 
   if (loginForm) {
-    loginForm.addEventListener('submit', function (evt) {
+    loginForm.addEventListener('submit', (evt) => {
       if (!email.value) {
         evt.preventDefault();
       } else {
@@ -105,8 +104,8 @@
   }
 
   if (modalBasketOpen && modalBasket) {
-    for (var i = 0; i < modalBasketOpen.length; i++) {
-      modalBasketOpen[i].addEventListener('click', function (evt) {
+    for (let i = 0; i < modalBasketOpen.length; i++) {
+      modalBasketOpen[i].addEventListener('click', (evt) => {
         evt.preventDefault();
         modalOpenHandler(modalBasket);
       });
@@ -118,7 +117,7 @@
   }
 
   if (modalFilterOpen && modalFilter) {
-    modalFilterOpen.addEventListener('click', function (evt) {
+    modalFilterOpen.addEventListener('click', (evt) => {
       evt.preventDefault();
       modalOpenHandler(modalFilter);
       modalFilter.classList.add('filter--modal-open');
