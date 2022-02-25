@@ -1,16 +1,6 @@
 .page-header {
   position: relative;
 
-  &::after {
-    position: absolute;
-    top: 115px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $line;
-    content: "";
-  }
-
   a {
     color: $dark;
 
@@ -33,8 +23,14 @@
     }
 
     .page-header__wrapper {
-      padding-top: 53px;
-      padding-bottom: 73px;
+      display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px calc(50% - 605px) 49px;
+    border-bottom: 1px solid $line;
+    margin: 0 20px;
     }
 
     .page-header__cart {

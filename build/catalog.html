@@ -3,16 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Online store of handmade jewelry made of gold and precious stones">
-  <title>CH Jewellery online store catalog</title>
-  <link rel="preload" href="fonts/poppins-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/poppins-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/poppins-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/cormorant-garamond-v9-latin-600.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/cormorant-garamond-v9-latin-700.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/cormorant-garamond-v9-latin-italic.woff2" as="font" type="font/woff2" crossorigin="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jewellery">
+  <title>Jewellery</title>
+  <link rel="prefetch" href="fonts/cormorantgaramond-regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -24,7 +20,7 @@
         <span class="visually-hidden">Open or close menu</span>
       </button>
 
-      <form class="page-header__form form form--search" method="GET" action="index.html">
+      <form class="page-header__form form form--search" method="GET" action="main.html">
         <label for="search" aria-label="search">
           <svg width="14" height="14">
             <use xlink:href="img/sprite_auto.svg#icon-search"></use>
@@ -33,7 +29,7 @@
         <input type="search" id="search" name="search" placeholder="Type here to search">
       </form>
 
-      <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery">
+      <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery" href="main.html">
         <svg width="66" height="66">
           <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
         </svg>
@@ -337,7 +333,7 @@
       <section class="page-footer__subscription">
         <h2>The good stuff in&nbsp;your inbox</h2>
         <p>News and updates from CH. No&nbsp;spam, we promise.</p>
-        <form class="page-footer__form form form--email" method="POST" action="index.html">
+        <form class="page-footer__form form form--email" method="POST" action="main.html">
           <label class="visually-hidden" for="post-email">E-mail</label>
           <input type="email" id="post-email" name="post-email" placeholder="Your E-mail" required="">
           <button class="page-footer__submit" type="submit">
@@ -422,7 +418,7 @@
   <section class="login modal modal--login">
     <div class="login__wrapper">
       <h2>Log In</h2>
-      <a href="index.html" class="modal__close modal__close--login" aria-label="Close modal window"></a>
+      <a href="main.html" class="modal__close modal__close--login" aria-label="Close modal window"></a>
 
       <form class="login__form" action="https://echo.htmlacademy.ru" method="POST">
         <label class="visually-hidden" for="email">E-mail</label>
@@ -471,8 +467,8 @@
     </div>
   </section>
 
-  <script src="js/main.js"></script>
   <script src="js/vendor.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

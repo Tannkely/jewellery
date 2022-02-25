@@ -60,6 +60,7 @@
 
 })();
 
+
 // модальные окна
 
 (function () {
@@ -68,10 +69,6 @@
   let modalLogin = document.querySelector('.modal--login');
   let modalLoginClose = document.querySelector('.modal__close--login');
   let loginForm = document.querySelector('.login__form');
-
-  let modalBasketOpen = document.querySelectorAll('.modal-open--basket');
-  let modalBasket = document.querySelector('.modal--basket');
-  let modalBasketClose = document.querySelector('.modal__close--basket');
 
   let modalFilterOpen = document.querySelector('.catalog__filter-button');
   let modalFilter = document.querySelector('.filter');
@@ -163,19 +160,6 @@
         }
       }
     });
-  }
-
-  if (modalBasketOpen && modalBasket) {
-    for (let i = 0; i < modalBasketOpen.length; i++) {
-      modalBasketOpen[i].addEventListener('click', (evt) => {
-        evt.preventDefault();
-        modalOpenHandler(modalBasket);
-      });
-    }
-  }
-
-  if (modalBasketClose) {
-    modalBasketClose.addEventListener('click', modalCloseHandler);
   }
 
   if (modalFilterOpen && modalFilter) {
