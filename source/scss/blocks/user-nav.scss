@@ -1,0 +1,56 @@
+.user-nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-self: end;
+  height: max-content;
+  padding: 10px 24px 0 0;
+  column-gap: 35px;
+
+  @media (max-width: $desktop) {
+    padding: 24px 0 0;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 17px 0 0;
+  }
+}
+
+.user-nav a {
+  font-size: 14px;
+  line-height: 21px;
+  color: #1d1613;
+
+  &:hover {
+    color: #9b9997;
+  }
+}
+
+.user-nav__cart {
+  order: 1;
+}
+
+.user-nav__cart-icon-wrap {
+  @media (max-width: $desktop) {
+    order: -1;
+  }
+}
+
+.user-nav a:last-of-type {
+  display: none;
+
+  @media (max-width: $desktop) {
+    display: inline-flex;
+  }
+}
+
+.user-nav__cart-icon {
+  fill: none;
+  stroke: #1d1613;
+}
+
+.user-nav__login,
+.user-nav__cart {
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}

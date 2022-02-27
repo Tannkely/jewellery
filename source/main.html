@@ -6,39 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jewellery" />
   <title>Jewellery</title>
-  <link rel="preload" href="fonts/cormorantgaramond-regular.woff2" as="font" crossorigin="anonymous">
-  <link rel="preload" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
-  <link rel="preload" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 </head>
 
 <body>
-
   <header class="page-header page-header--closed page-header--nojs">
-    <div class="page-header__wrapper wrapper">
-      <button class="page-header__toggle" type="button">
-        <span class="visually-hidden">Open or close menu</span>
-      </button>
+      <div class="page-header__wrapper wrapper">
+        <button class="page-header__toggle" type="button">
+          <span class="visually-hidden">Open or close menu</span>
+        </button>
 
-      <form class="page-header__form form form--search" method="GET" action="main.html">
-        <label for="search" aria-label="search">
-          <svg width="14" height="14">
-            <use xlink:href="img/sprite_auto.svg#icon-search"></use>
+        <form class="page-header__form form form--search" method="GET" action="main.html">
+          <label for="search" aria-label="search">
+            <svg width="14" height="14">
+              <use xlink:href="img/sprite_auto.svg#icon-search"></use>
+            </svg>
+          </label>
+          <input type="search" id="search" name="search" placeholder="Type here to search" />
+        </form>
+
+        <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery" href="#">
+          <svg width="66" height="66">
+            <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
           </svg>
-        </label>
-        <input type="search" id="search" name="search" placeholder="Type here to search" />
-      </form>
+        </a>
 
-      <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery" href="#">
-        <svg width="66" height="66">
-          <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
-        </svg>
-      </a>
+        <a class="page-header__login modal-open modal-open--login" href="#">Login</a>
 
-      <a class="page-header__login modal-open modal-open--login" href="#">Login</a>
-
-      <a class="page-header__cart" href="#">Cart 0</a>
-
+        <a class="page-header__cart" href="#">Cart 0</a>
       <nav class="page-header__nav">
         <ul class="page-header__site-menu">
           <li>
@@ -83,147 +82,280 @@
       </div>
     </section>
 
-    <section class="slider">
-      <div class="slider__wrapper wrapper">
-        <h2>New In</h2>
-        <a class="slider__link" href="catalog.html">Shop Now</a>
-        <div class="slider__buttons">
-          <button class="slider__button slider__button--left" type="button" aria-label="flipping back">
-            <svg width="30" height="11">
-              <use xlink:href="img/sprite_auto.svg#icon-arrow-left"></use>
-            </svg>
-          </button>
-          <button class="slider__button slider__button--right" type="button" aria-label="flipping forward">
-            <svg width="30" height="11">
-              <use xlink:href="img/sprite_auto.svg#icon-arrow-right"></use>
-            </svg>
-          </button>
-        </div>
-        <div class="slider__container">
-          <ul class="slider__list">
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/purple-gemstone-necklace-desktop@1x.webp 1x, img/purple-gemstone-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/purple-gemstone-necklace-desktop@1x.jpg"
-                    srcset="img/purple-gemstone-necklace-desktop@2x.jpg 2x" width="270" height="284"
-                    alt="Necklace with amethyst" />
-                </picture>
-                <h3>Necklace with amethyst</h3>
-                <p>$ 145</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/layered-choker-necklace-desktop@1x.webp 1x, img/layered-choker-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/layered-choker-necklace-desktop@1xjpg"
-                    srcset="img/layered-choker-necklace-desktop@2x.jpg 2x" width="270" height="284"
-                    alt="Layered сhoker" />
-                </picture>
-                <h3>Layered сhoker</h3>
-                <p>$ 115</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/dainty-gold-necklace-desktop@1x.webp 1x, img/dainty-gold-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/dainty-gold-necklace-desktop@1x.jpg" srcset="img/dainty-gold-necklace-desktop@2x.jpg 2x"
-                    width="270" height="284" alt="Gold chain" />
-                </picture>
-                <h3>Gold chain</h3>
-                <p>$ 215</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source srcset="img/galaxy-earrings-desktop@1x.webp 1x, img/galaxy-earrings-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/galaxy-earrings-desktop@1x.jpg" srcset="img/galaxy-earrings-desktop@2x.jpg 2x"
-                    width="270" height="284" alt="Galaxy earrings" />
-                </picture>
-                <h3>Galaxy earrings</h3>
-                <p>$ 95</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/purple-gemstone-necklace-desktop@1x.webp 1x, img/purple-gemstone-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/purple-gemstone-necklace-desktop@1x.jpg"
-                    srcset="img/purple-gemstone-necklace-desktop@2x.jpg 2x" width="270" height="284"
-                    alt="Necklace with amethyst" />
-                </picture>
-                <h3>Necklace with amethyst</h3>
-                <p>$ 145</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/layered-choker-necklace-desktop@1x.webp 1x, img/layered-choker-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/layered-choker-necklace-desktop@1xjpg"
-                    srcset="img/layered-choker-necklace-desktop@2x.jpg 2x" width="270" height="284"
-                    alt="Layered сhoker" />
-                </picture>
-                <h3>Layered сhoker</h3>
-                <p>$ 115</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source
-                    srcset="img/dainty-gold-necklace-desktop@1x.webp 1x, img/dainty-gold-necklace-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/dainty-gold-necklace-desktop@1x.jpg" srcset="img/dainty-gold-necklace-desktop@2x.jpg 2x"
-                    width="270" height="284" alt="Gold chain" />
-                </picture>
-                <h3>Gold chain</h3>
-                <p>$ 215</p>
-              </a>
-            </li>
-            <li class="slider__item">
-              <a href="#">
-                <picture>
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <source srcset="img/galaxy-earrings-desktop@1x.webp 1x, img/galaxy-earrings-desktop@2x.webp 2x"
-                    type="image/webp" />
-                  <!-- 1x: 270px; 2x: 540px -->
-                  <img src="img/galaxy-earrings-desktop@1x.jpg" srcset="img/galaxy-earrings-desktop@2x.jpg 2x"
-                    width="270" height="284" alt="Galaxy earrings" />
-                </picture>
-                <h3>Galaxy earrings</h3>
-                <p>$ 95</p>
-              </a>
-            </li>
-          </ul>
+    <section class="slider-block new-items">
+      <div class="new-items__container">
+        <div class="new-items__slider slider">
+          <div class="new-items__up-container">
+            <h2>New In</h2>
+            <a href="#">Shop Now</a>
+          </div>
+          <div class="swiper-container slider__container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/purple-gemstone-necklace-mobile.webp 1x, img/purple-gemstone-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/purple-gemstone-necklace-tablet.webp 1x, img/purple-gemstone-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/purple-gemstone-necklace-desktop.webp 1x, img/purple-gemstone-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/purple-gemstone-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Necklace with amethyst</h3>
+                    <span>$ 145</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/layered-choker-necklace-mobile.webp 1x, img/layered-choker-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/layered-choker-necklace-tablet.webp 1x, img/layered-choker-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/layered-choker-necklace-desktop.webp 1x, img/layered-choker-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/layered-choker-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Layered сhoker</h3>
+                    <span>$ 115</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source
+                        srcset="img/dainty-gold-necklace-desktop.webp 1x, img/dainty-gold-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/dainty-gold-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Gold chain</h3>
+                    <span>$ 215</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(min-width: 1024px)"
+                        srcset="img/galaxy-earrings-desktop.webp 1x, img/galaxy-earrings-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/galaxy-earrings-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Galaxy earrings</h3>
+                    <span>$ 95</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/purple-gemstone-necklace-mobile.webp 1x, img/purple-gemstone-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/purple-gemstone-necklace-tablet.webp 1x, img/purple-gemstone-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/purple-gemstone-necklace-desktop.webp 1x, img/purple-gemstone-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/purple-gemstone-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Necklace with amethyst</h3>
+                    <span>$ 145</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/layered-choker-necklace-mobile.webp 1x, img/layered-choker-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/layered-choker-necklace-tablet.webp 1x, img/layered-choker-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/layered-choker-necklace-desktop.webp 1x, img/layered-choker-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/layered-choker-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Layered сhoker</h3>
+                    <span>$ 115</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source
+                        srcset="img/dainty-gold-necklace-desktop.webp 1x, img/dainty-gold-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/dainty-gold-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Gold chain</h3>
+                    <span>$ 215</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source srcset="img/galaxy-earrings-desktop.webp 1x, img/galaxy-earrings-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/galaxy-earrings-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Galaxy earrings</h3>
+                    <span>$ 95</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/purple-gemstone-necklace-mobile.webp 1x, img/purple-gemstone-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/purple-gemstone-necklace-tablet.webp 1x, img/purple-gemstone-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/purple-gemstone-necklace-desktop.webp 1x, img/purple-gemstone-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/purple-gemstone-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Necklace with amethyst</h3>
+                    <span>$ 145</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source media="(max-width: 767px)"
+                        srcset="img/layered-choker-necklace-mobile.webp 1x, img/layered-choker-necklace-mobile@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(max-width: 1023px)"
+                        srcset="img/layered-choker-necklace-tablet.webp 1x, img/layered-choker-necklace-tablet@2x.webp 2x"
+                        type="image/webp">
+                      <source media="(min-width: 1024px)"
+                        srcset="img/layered-choker-necklace-desktop.webp 1x, img/layered-choker-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/layered-choker-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Layered сhoker</h3>
+                    <span>$ 115</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source
+                        srcset="img/dainty-gold-necklace-desktop.webp 1x, img/dainty-gold-necklace-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/dainty-gold-necklace-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Gold chain</h3>
+                    <span>$ 215</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide slider__slide">
+                <a href="#">
+                  <div class="slider__slide-img-wrap">
+                    <picture>
+                      <source srcset="img/galaxy-earrings-desktop.webp 1x, img/galaxy-earrings-desktop@2x.webp 2x"
+                        type="image/webp">
+                      <img src="img/galaxy-earrings-desktop.jpg" loading="lazy" width="270" height="284"
+                        alt="jess harper sunday">
+                      <!-- 1х: 270px/284px; 2x: 540px/568px -->
+                    </picture>
+                  </div>
+                  <div class="slider__slide-title-wrap">
+                    <h3>Galaxy earrings</h3>
+                    <span>$ 95</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Вид пагинация не меняется при изменении разрешения в devtools,
+            необходимо перезагрузить страницу -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev slider__button-prev">
+              <svg width="30" height="11" aria-hidden="true">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-left"></use>
+              </svg>
+            </div>
+            <div class="swiper-button-next slider__button-next">
+              <svg width="30" height="11" aria-hidden="true">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-right"></use>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -495,6 +627,7 @@
     </div>
   </section>
 
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
 </body>
