@@ -30,36 +30,6 @@
     }
   }
 
-  &__submit {
-    @include font(16px, 21px);
-    position: absolute;
-    top: 23px;
-    right: 0;
-    padding: 0;
-    color: $white;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    svg {
-      stroke: $white;
-    }
-
-    &:hover,
-    &:focus {
-      color: $white-light;
-
-      svg {
-        stroke: $white-light;
-      }
-    }
-
-    &:active {
-      color: $white-light;
-      opacity: 0.6;
-    }
-  }
-
   &__links {
     width: 45%;
     padding: 6px 30px 0 79px;
@@ -72,26 +42,6 @@
     justify-content: space-between;
   }
 
-  &__links-item {
-    width: 43%;
-    margin-bottom: 21px;
-
-    a {
-      @include font(16px, 21px);
-      color: $white;
-
-      &:hover,
-      &:focus {
-        color: $white-light;
-      }
-
-      &:active {
-        color: $white-light;
-        opacity: 0.6;
-      }
-    }
-  }
-
   &__social-list {
     @include clear-list;
     padding-top: 7px;
@@ -100,44 +50,93 @@
       margin-bottom: 24px;
     }
   }
+}
 
-  &__social-link {
-    display: flex;
+.page-footer__submit {
+  @include font(16px, 21px);
+  position: absolute;
+  top: 23px;
+  right: 0;
+  padding: 0;
+  color: $white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    stroke: $white;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white-light;
+
+    svg {
+      stroke: $white-light;
+    }
+  }
+
+  &:active {
+    color: $white-light;
+    opacity: 0.6;
+  }
+}
+
+.page-footer__social-link {
+  display: flex;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $white-light;
+
+    svg {
+      fill: $white-light;
+    }
+  }
+
+  &:active {
+    color: $white-light;
+    opacity: 0.6;
+
+    svg {
+      fill: $white-light;
+      opacity: 0.6;
+    }
+  }
+
+  svg {
+    fill: $white;
+  }
+
+  span {
+    margin-left: 15px;
+  }
+
+  &--fb {
+    padding-left: 5px;
+  }
+}
+
+.page-footer__links-item {
+  width: 43%;
+  margin-bottom: 21px;
+
+  a {
+    @include font(16px, 21px);
     color: $white;
 
     &:hover,
     &:focus {
       color: $white-light;
-
-      svg {
-        fill: $white-light;
-      }
     }
 
     &:active {
       color: $white-light;
       opacity: 0.6;
-
-      svg {
-        fill: $white-light;
-        opacity: 0.6;
-      }
-    }
-
-    svg {
-      fill: $white;
-    }
-
-    span {
-      margin-left: 15px;
-    }
-
-    &--fb {
-      padding-left: 5px;
     }
   }
 }
-
 
 @media (max-width: $tablet) {
   .page-footer {

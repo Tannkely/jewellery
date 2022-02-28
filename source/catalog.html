@@ -45,7 +45,7 @@
         </div>
         <div class="page-header__user-nav user-nav">
           <a class="user-nav__cart" href="#">Cart <span>0</span></a>
-          <a class="user-nav__login login-link modal-button" href="login.html">Login</a>
+          <a class="user-nav__login modal-button" href="login.html">Login</a>
           <a class="user-nav__cart-icon-wrap" href="#">
             <svg class="user-nav__cart-icon" width="20" height="18" viewBox="0 0 20 18" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@
         <a href="#">Contact Us</a>
       </div>
       <div class="main-nav__login">
-        <a class="main-nav__login-link login-link modal-button" href="login.html">Login</a>
+        <a class="modal-button" href="login.html">Login</a>
       </div>
     </nav>
   </header>
@@ -91,7 +91,15 @@
       <a class="catalog__filter-button button button--brown modal-open" href="#">Filter</a>
 
       <form class="catalog__form filter filter--nojs filter--modal" method="GET" action="catalog.html">
-        <button class="filter__modal-close" type="button" aria-label="Close modal window"></button>
+        <button type="button" aria-label="Close modal window"></button>
+        <svg class="filter__modal-close" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="16" fill="#1D1613" />
+          <path
+            d="M16 14.445L21.445 9 23 10.555 17.555 16 23 21.445 21.445 23 16 17.555 10.555 23 9 21.445 14.445 16 9 10.555 10.555 9 16 14.445z"
+            fill="#fff" />
+            <use xlink:href="img/sprite_auto.svg#icon-round-close"></use>
+        </svg>
+
         <fieldset class="filter__item filter__item--open">
           <button class="filter__item-button" type="button">Product</button>
           <ul class="filter__list filter__content">
@@ -471,43 +479,6 @@
 
         <p class="login__form-text">Don’t have an account? <a href="#">Sign up</a></p>
       </form>
-    </div>
-  </section>
-
-  <section class="basket modal modal--basket">
-    <div class="basket__wrapper">
-      <a href="#" class="modal__close modal__close--basket" aria-label="Close modal window"></a>
-      <h2>The item was added to your cart</h2>
-      <div class="basket__picture">
-        <picture>
-          <!-- 1x: 84px; 2x: 168px -->
-          <source srcset="img/necklace-detail-small-desktop@1x.webp 1x, img/necklace-detail-small-desktop@2x.webp 2x"
-            type="image/webp" />
-          <!-- 1x: 84px; 2x: 168px -->
-          <img src="img/necklace-detail-small-desktop@1x.jpg" srcset="img/necklace-detail-small-desktop@2x.jpg 2x"
-            width="84" height="79" alt="Necklace detail" />
-        </picture>
-        <div class="basket__picture-title">
-          <h2>Gold Necklace</h2>
-          <p>$ 115</p>
-        </div>
-        <div class="basket__picture-counter">
-          <button class="basket__count-button basket__count-button--plus" type="button"
-            aria-label="Increase the number"></button>
-          <label class="visually-hidden" for="count">Count of selected items</label>
-          <input type="number" id="count" name="count" value="1" readonly tabindex="-1" />
-          <button class="basket__count-button basket__count-button--minus" type="button"
-            aria-label="Reduce the number"></button>
-        </div>
-      </div>
-      <div class="basket__description">
-        <p>You have 1 item in the cart</p>
-        <p>Cart subtotal: <span>$ 115</span></p>
-      </div>
-      <div class="basket__links">
-        <a class="basket__link button button--white" href="catalog.html">Continue shopping</a>
-        <a class="basket__link button button--brown" href="catalog.html">Checkout</a>
-      </div>
     </div>
   </section>
 

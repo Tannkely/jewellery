@@ -2,33 +2,7 @@
   position: relative;
 
   &__wrapper {
-    z-index: 0 !important;
-  }
-
-  &__button {
-    appearance: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.3s ease;
-
-    svg {
-      width: 36px;
-      height: 15px;
-    }
-
-    &--prev {
-      &:hover {
-        transform: translateX(-3px);
-      }
-    }
-
-    &--next {
-      &:hover {
-        transform: translateX(3px);
-      }
-    }
+    z-index: 0;
   }
 
   &__pagination {
@@ -171,6 +145,31 @@
   }
 }
 
+.slider__button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+
+  svg {
+    width: 36px;
+    height: 15px;
+  }
+
+  &--prev {
+    &:hover {
+      transform: translateX(-3px);
+    }
+  }
+
+  &--next {
+    &:hover {
+      transform: translateX(3px);
+    }
+  }
+}
 
 .slider-block {
   @media (max-width: $desktop) {

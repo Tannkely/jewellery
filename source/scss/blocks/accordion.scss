@@ -31,15 +31,6 @@
     transform: rotate(180deg);
   }
 
-  &__item.active &__item-down-arrow-icon {
-    display: none;
-  }
-
-  &__item.active &__item-up-arrow-icon {
-    display: inline-flex;
-    transform: rotate(180deg);
-  }
-
   &__item-title {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -55,23 +46,6 @@
 
     @media (max-width: $mobile) {
       margin: 0 0 15px;
-    }
-  }
-
-  &__item h3 {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 130%;
-    color: $dark;
-
-    text-align: left;
-    margin: 0;
-
-    @media (max-width: $mobile) {
-      font-size: 16px;
-      line-height: 140%;
-
-      width: 182px;
     }
   }
 
@@ -147,5 +121,22 @@
   &__item.no-js &__item-down-arrow-icon,
   &__item.no-js &__item-up-arrow-icon {
     display: none;
+  }
+}
+
+.accordion__item h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  color: $dark;
+
+  text-align: left;
+  margin: 0;
+
+  @media (max-width: $mobile) {
+    font-size: 16px;
+    line-height: 140%;
+
+    width: 182px;
   }
 }

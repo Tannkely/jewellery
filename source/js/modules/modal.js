@@ -1,85 +1,78 @@
-// модальные окна
-
 (function () {
 
-  let modalLoginOpen = document.querySelector('.modal-open--login');
-  let modalLogin = document.querySelector('.modal--login');
-  let modalLoginClose = document.querySelector('.modal__close--login');
-  let loginForm = document.querySelector('.login__form');
-
-  let modalFilterOpen = document.querySelector('.catalog__filter-button');
-  let modalFilter = document.querySelector('.filter');
-  let modalFilterClose = document.querySelector('.filter__modal-close');
-
-  let body = document.querySelector('body');
-
-  let email = document.querySelector('[id=email]');
-
-  let isStorage = true;
-  let emailStorage = '';
-
-  try {
-    emailStorage = localStorage.getItem('emailStorage');
-  } catch (err) {
-    isStorage = false;
-  }
-
-  let escapeClickHandler = function (evt) {
+  // Обработчик нажатия на кнопку Esc при открытой модалке
+  function escapeClickHandler(evt) {
     if (evt.key === window.utils.KeyCode.ESCAPE) {
       evt.preventDefault();
-      // eslint-disable-next-line no-use-before-define
-      setVisible(false);
+      setModalVisibility(false);
     }
-  };
+  }
 
-  let setVisible = function (visible) {
+  // Установка видимости эл-та overlay и модалки
+  function setModalVisibility(visible, modal) {
     if (visible) {
-      body.classList.add('overlay--open');
+      document.body.classList.add('overlay--open');
+      createOverlay();
       document.addEventListener('keydown', escapeClickHandler);
+      modal.classList.add('modal-show');
     } else {
-      body.classList.remove('overlay--open');
-      document.querySelector('.modal-show').classList.remove('modal-show');
-      document.querySelector('.overlay').remove();
-      document.removeEventListener('keydowm', escapeClickHandler);
-
-      if (modalFilter && modalFilterClose) {
-        modalFilter.classList.remove('filter--modal-open');
+      document.body.classList.remove('overlay--open');
+      if(document.querySelector('.modal-show')){
+        document.querySelector('.modal-show').classList.remove('modal-show');
       }
+      if(document.querySelector('.overlay')){
+        document.querySelector('.overlay').remove();
+      }
+      document.removeEventListener('keydowm', escapeClickHandler);
     }
-  };
+  }
 
-  let createOverlay = function () {
-    let overlay = document.createElement('div');
+  // Создание эл-та overlay со своей логикой (по клику)
+  function createOverlay() {
+    const overlay = document.createElement('div');
+
     overlay.classList.add('overlay');
-    body.appendChild(overlay);
+    document.body.appendChild(overlay);
 
     overlay.addEventListener('click', (overlayEvt) => {
       if (overlayEvt.target === overlay) {
-        setVisible(false);
+        setModalVisibility(false);
       }
     });
-  };
+  }
 
-  let modalOpenHandler = function (modal) {
-    modal.classList.add('modal-show');
-    createOverlay();
-    setVisible(true);
-  };
+  // Обработчик открытия модалки
+  function modalOpenHandler(modal) {
+    setModalVisibility(true, modal);
+  }
 
-  let modalCloseHandler = function (evt) {
-    evt.preventDefault();
-    setVisible(false);
-  };
+  // Обработчик закрытия модалки
+  function modalCloseHandler(event) {
+    event.preventDefault();
+    setModalVisibility(false);
+  }
+
+  window.addEventListener('resize', modalCloseHandler);
+
+
+  const modalLoginOpen = document.querySelector('.modal-button');
+  const modalLoginClose = document.querySelector('.modal__close--login');
+  const modalLogin = document.querySelector('.modal--login');
+  const email = document.querySelector('[id=email]');
+  // const loginForm = document.querySelector('.login__form');
+
+  const modalFilterOpen = document.querySelector('.catalog__filter-button');
+  const modalFilterClose = document.querySelector('.filter__modal-close');
+  const modalFilter = document.querySelector('.filter');
+
 
   if (modalLoginOpen && modalLogin) {
-    modalLoginOpen.addEventListener('click', (evt) => {
-      evt.preventDefault();
+    modalLoginOpen.addEventListener('click', (event) => {
+      event.preventDefault();
+
       modalOpenHandler(modalLogin);
       email.focus();
 
-      if (emailStorage) {
-        email.value = emailStorage;
-      }
     });
   }
 
@@ -87,28 +80,14 @@
     modalLoginClose.addEventListener('click', modalCloseHandler);
   }
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', (evt) => {
-      if (!email.value) {
-        evt.preventDefault();
-      } else {
-        if (isStorage) {
-          localStorage.setItem('emailStorage', email.value);
-        }
-      }
-    });
-  }
-
   if (modalFilterOpen && modalFilter) {
-    modalFilterOpen.addEventListener('click', (evt) => {
-      evt.preventDefault();
+    modalFilterOpen.addEventListener('click', (event) => {
+      event.preventDefault();
       modalOpenHandler(modalFilter);
-      modalFilter.classList.add('filter--modal-open');
     });
   }
 
   if (modalFilterClose) {
     modalFilterClose.addEventListener('click', modalCloseHandler);
   }
-
 })();
