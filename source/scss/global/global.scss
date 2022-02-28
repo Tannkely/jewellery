@@ -17,6 +17,10 @@ body {
   font-family: $main-font;
   font-style: normal;
   font-weight: 500;
+
+  &.overlay--open {
+    overflow: hidden;
+  }
 }
 
 img {

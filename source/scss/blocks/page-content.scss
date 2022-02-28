@@ -19,15 +19,8 @@
   }
 }
 
-@media (max-width: $tablet) {
-  .page-content {
-    margin-top: 126px;
-  }
-}
-
 @media (max-width: $mobile) {
   .page-content {
-    margin-top: 92px;
 
     &--login {
       margin-top: 0;

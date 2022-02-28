@@ -1,21 +1,21 @@
 // мобильное меню - начиная с планшетной версии
-
 (function () {
-  let pageHeader = document.querySelector('.page-header');
-  let headerToggle = document.querySelector('.page-header__toggle');
+  const menu = document.querySelector('.page-header');
+  const menuButton = document.querySelector('.page-header__hamburger button');
 
-  if (pageHeader && headerToggle) {
-    pageHeader.classList.remove('page-header--nojs');
+  menu.classList.remove('no-js');
 
-    headerToggle.addEventListener('click', () => {
-      if (pageHeader.classList.contains('page-header--closed')) {
-        pageHeader.classList.remove('page-header--closed');
-        pageHeader.classList.add('page-header--opened');
+  if (menu && menuButton) {
+    menuButton.addEventListener('click', () => {
+      if (menu.classList.contains('page-header--closed')) {
+        menu.classList.remove('page-header--closed');
+        menu.classList.add('page-header--opened');
+        document.body.style.overflow = 'hidden';
       } else {
-        pageHeader.classList.add('page-header--closed');
-        pageHeader.classList.remove('page-header--opened');
+        menu.classList.add('page-header--closed');
+        menu.classList.remove('page-header--opened');
+        document.body.removeAttribute('style');
       }
     });
   }
-
 })();

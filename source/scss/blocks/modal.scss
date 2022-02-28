@@ -5,28 +5,29 @@
   &--nojs {
     display: block;
   }
-}
 
-.modal__close {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  width: 14px;
-  height: 14px;
-  display: block;
-  border: none;
-  background-color: transparent;
-  background-repeat: no-repeat;
-
-  @media (max-width: $tablet) {
-    width: 20px;
-    height: 20px;
-  }
-
-  @media (max-width: $mobile) {
-    top: 12px;
-    right: 15px;
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
     width: 14px;
     height: 14px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    @media (max-width: $tablet) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: $mobile) {
+      top: 12px;
+      right: 15px;
+      width: 14px;
+      height: 14px;
+    }
   }
+
 }

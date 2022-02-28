@@ -1,32 +1,136 @@
 // аккордеон для блока FAQ
 
-(function () {
-  let faqList = document.querySelector('.faq__list');
+if (document.querySelectorAll('.accordion__item').length) {
+  const accordionItems = document.querySelectorAll('.accordion__item');
 
-  if (faqList) {
-    faqList.classList.remove('faq__list--nojs');
+  accordionItems.forEach((item) => {
+    item.classList.remove('no-js');
+    item.addEventListener('click', () => {
+      const activeAccordionItem = document.querySelector(
+        '.accordion__item.active'
+      );
 
-    let toggleFaqItem = function (item) {
-      item.classList.toggle('faq__item--open');
+      if (activeAccordionItem && activeAccordionItem !== item) {
+        activeAccordionItem.classList.toggle('active');
+      }
+
+      item.classList.toggle('active');
+    });
+
+    item.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Enter') {
+        evt.preventDefault();
+        const activeAccordionItem = document.querySelector(
+          '.accordion__item.active'
+        );
+        if (activeAccordionItem && activeAccordionItem !== item) {
+          activeAccordionItem.classList.toggle('active');
+        }
+
+        item.classList.toggle('active');
+      }
+    });
+  });
+}
+
+if (document.querySelectorAll('.filter__accordion-item').length) {
+  const filterAccordionItems = document.querySelectorAll(
+    '.filter__accordion-item'
+  );
+
+  filterAccordionItems.forEach((item) => {
+    item.classList.remove('no-js');
+
+    const filterItemTitle = item.querySelector(
+      '.filter__accordion-item-title-wrap'
+    );
+
+    filterItemTitle.addEventListener('click', (evt) => {
+      if (
+        evt.target &&
+        evt.target.closest('.filter__accordion-item-title-wrap')
+      ) {
+        if (
+          !item
+            .querySelector('.filter__accordion-item-body')
+            .classList.contains('active') &&
+          !item.classList.contains('active')
+        ) {
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.add('active');
+          item.classList.add('active');
+          item.blur();
+        } else if (
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.contains('active')
+        ) {
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.remove('active');
+          item.classList.remove('active');
+        }
+      }
+    });
+
+    const onFilterItemKeydown = (evt) => {
+      if (evt.key === 'Enter') {
+        evt.preventDefault();
+
+        if (
+          !item
+            .querySelector('.filter__accordion-item-body')
+            .classList.contains('active') &&
+          !item.classList.contains('active')
+        ) {
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.add('active');
+          item.classList.add('active');
+        } else if (
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.contains('active')
+        ) {
+          item
+            .querySelector('.filter__accordion-item-body')
+            .classList.remove('active');
+          item.classList.remove('active');
+        }
+      }
     };
 
-    faqList.addEventListener('click', (evt) => {
-      let faqItem = evt.target.closest('li');
-      toggleFaqItem(faqItem);
-    });
-  }
+    item.addEventListener('keydown', onFilterItemKeydown);
 
-})();
+    const filterItemInputs = item.querySelectorAll(
+      '.filter__accordion-item-input-wrap input'
+    );
+
+    filterItemInputs.forEach((input) => {
+      input.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Enter') {
+          evt.preventDefault();
+          item.removeEventListener('keydown', onFilterItemKeydown);
+
+          if (evt.target.checked === true) {
+            evt.target.checked = false;
+          } else {
+            evt.target.checked = true;
+          }
+        }
+      });
+    });
+  });
+}
 
 // аккордеон для фильтра
 
 (function () {
-
   let filter = document.querySelector('.filter');
   let filterButtons = document.querySelectorAll('.filter__item > button');
 
   if (filter && filterButtons) {
-
     filter.classList.remove('filter--nojs');
 
     for (let i = 0; i < filterButtons.length; i++) {
@@ -35,31 +139,29 @@
       });
     }
   }
-
 })();
 
 // мобильное меню - начиная с планшетной версии
-
 (function () {
-  let pageHeader = document.querySelector('.page-header');
-  let headerToggle = document.querySelector('.page-header__toggle');
+  const menu = document.querySelector('.page-header');
+  const menuButton = document.querySelector('.page-header__hamburger button');
 
-  if (pageHeader && headerToggle) {
-    pageHeader.classList.remove('page-header--nojs');
+  menu.classList.remove('no-js');
 
-    headerToggle.addEventListener('click', () => {
-      if (pageHeader.classList.contains('page-header--closed')) {
-        pageHeader.classList.remove('page-header--closed');
-        pageHeader.classList.add('page-header--opened');
+  if (menu && menuButton) {
+    menuButton.addEventListener('click', () => {
+      if (menu.classList.contains('page-header--closed')) {
+        menu.classList.remove('page-header--closed');
+        menu.classList.add('page-header--opened');
+        document.body.style.overflow = 'hidden';
       } else {
-        pageHeader.classList.add('page-header--closed');
-        pageHeader.classList.remove('page-header--opened');
+        menu.classList.add('page-header--closed');
+        menu.classList.remove('page-header--opened');
+        document.body.removeAttribute('style');
       }
     });
   }
-
 })();
-
 
 // модальные окна
 
@@ -176,79 +278,119 @@
 
 })();
 
-if (document.querySelector('.swiper-container')) {
-	new Swiper('.swiper-container', {
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'bullets',
-			clickable: true,
-			renderBullet: function (index, className) {
-				return '<span class="' + className + '">' + (index + 1) + '</span>';
-			}
-		},
-		grabCursor: true,
-		keyboard: {
-			enabled: true,
-			onlyInViewport: true,
-		},
-		autoheight: true,
-		slidesPerView: 'auto',
-		spaceBetween: 30,
-		slidesPerGroup: 4,
-		loop: true,
-		breakpoints: {
-			320: {
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'fraction',
-					clickable: true,
-					renderFraction: function (currentClass, totalClass) {
-						return '<span class="' + currentClass + '"></span>' +
-							'&nbsp;&nbsp;of&nbsp;&nbsp;' +
-							'<span class="' + totalClass + '"></span>';
-					},
-				},
-				slidesPerView: 2,
-				slidesPerGroup: 2,
-			},
-			768: {
-				slidesPerView: 2,
-				slidesPerGroup: 2,
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'bullets',
-					clickable: true,
-					renderBullet: function (index, className) {
-						return '<span class="' + className + '">' + (index + 1) + '</span>';
-					}
-				}
-			},
-			1024: {
-				slidesPerView: 3,
-				slidesPerGroup: 3,
-			},
-			1300: {
-				slidesPerView: 4,
-				slidesPerGroup: 4,
-			}
-		}
-	});
-}
+(function () {
+  if (!document.querySelector('.swiper-container')) {
+    // Прерывание функции
+    return;
+  }
+
+  new window.Swiper('.swiper-container', {
+    navigation: {
+      prevEl: '.slider__button--prev',
+      nextEl: '.slider__button--next',
+    },
+    pagination: {
+      el: '.slider__pagination',
+      bulletClass: 'slider__pagination-bullet',
+      bulletActiveClass: 'slider__pagination-bullet--active',
+      type: 'bullets',
+      clickable: true,
+      renderBullet: function (index, className) {
+        // todo
+        return `<span class="${className}">${index + 1}</span>`;
+      },
+    },
+    grabCursor: true,
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+    autoheight: true,
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    slidesPerGroup: 4,
+    loop: true,
+    breakpoints: {
+      320: {
+        pagination: {
+          el: '.slider__pagination',
+          bulletClass: 'slider__pagination-bullet',
+          bulletActiveClass: 'slider__pagination-bullet--active',
+          type: 'fraction',
+          clickable: false,
+          renderFraction: function (currentClass, totalClass) {
+            // todo
+            return (
+              `<span class="${currentClass}"></span>` +
+              `&nbsp;&nbsp;of&nbsp;&nbsp;` +
+              `<span class="${totalClass}"></span>`
+            );
+          },
+        },
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        pagination: {
+          el: '.slider__pagination',
+          bulletClass: 'slider__pagination-bullet',
+          bulletActiveClass: 'slider__pagination-bullet--active',
+          type: 'fraction',
+          clickable: false,
+          renderFraction: function (currentClass, totalClass) {
+            // todo
+            return (
+              `<span class="${currentClass}"></span>` +
+              `&nbsp;&nbsp;of&nbsp;&nbsp;` +
+              `<span class="${totalClass}"></span>`
+            );
+          },
+        },
+      },
+      1024: {
+        pagination: {
+          el: '.slider__pagination',
+          bulletClass: 'slider__pagination-bullet',
+          bulletActiveClass: 'slider__pagination-bullet--active',
+          type: 'bullets',
+          clickable: true,
+          renderBullet: function (index, className) {
+            // todo
+            return `<span class="${className}">${index + 1}</span>`;
+          },
+        },
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+      1300: {
+        pagination: {
+          el: '.slider__pagination',
+          bulletClass: 'slider__pagination-bullet',
+          bulletActiveClass: 'slider__pagination-bullet--active',
+          type: 'bullets',
+          clickable: true,
+          renderBullet: function (index, className) {
+            // todo
+            return `<span class="${className}">${index + 1}</span>`;
+          },
+        },
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+      },
+    },
+  });
+})();
 
 // утилитарный модуль - экспортирует общие функции и переменные для всех модулей
 
 (function () {
-
   window.utils = {
     KeyCode: {
       BACKSPACE: 'Backspace',
       ESCAPE: 'Escape',
-    }
+    },
   };
-
 })();
 //# sourceMappingURL=main.js.map

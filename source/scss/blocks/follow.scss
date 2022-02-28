@@ -1,46 +1,50 @@
-.follow__wrapper {
-  margin-bottom: 127px;
-  text-align: center;
+.follow {
+  &__wrapper {
+    margin-bottom: 127px;
+    text-align: center;
 
-  h2 {
-    @include clear-content(30px);
-    @include font(34px, 44px);
-    @include head-font(700);
-    letter-spacing: 0.03em;
-    color: $dark;
+    h2 {
+      @include clear-content(30px);
+      @include font(34px, 44px);
+      @include head-font(700);
+      letter-spacing: 0.03em;
+      color: $dark;
+    }
+
+    a {
+      @include head-link(27px);
+      @include font(16px, 21px);
+    }
   }
 
-  a {
-    @include head-link(27px);
-    @include font(16px, 21px);
+  &__list {
+    @include clear-list;
+    margin-top: 64px;
+    display: flex;
+    justify-content: space-between;
   }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &--second {
+      padding-left: 10px;
+    }
+
+    &--third {
+      padding-left: 13px;
+      align-items: flex-start;
+    }
+
+    &--fourth {
+      align-items: flex-end;
+    }
+  }
+
 }
 
-.follow__list {
-  @include clear-list;
-  margin-top: 64px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.follow__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &--second {
-    padding-left: 10px;
-  }
-
-  &--third {
-    padding-left: 13px;
-    align-items: flex-start;
-  }
-
-  &--fourth {
-    align-items: flex-end;
-  }
-}
 
 @media (min-width: $desktop) and (max-width: $wrapper) {
   .follow__item img {

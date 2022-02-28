@@ -1,0 +1,151 @@
+.accordion {
+  border-top: 1px solid $brown;
+  border-left: 1px solid $brown;
+  border-right: 1px solid $brown;
+
+  &__item {
+    border-bottom: 1px solid $brown;
+    padding: 39px 48px 41px 43px;
+
+    cursor: pointer;
+
+    @media (max-width: $desktop) {
+      padding: 42px 49px 39px;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 13px 23px 19px 24px;
+    }
+
+    &__item-up-arrow-icon {
+      display: none;
+    }
+  }
+
+  &__item.active &__item-down-arrow-icon {
+    display: none;
+  }
+
+  &__item.active &__item-up-arrow-icon {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+
+  &__item.active &__item-down-arrow-icon {
+    display: none;
+  }
+
+  &__item.active &__item-up-arrow-icon {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+
+  &__item-title {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding-top: 5px;
+  }
+
+  &__item.active &__item-title {
+    margin: 0 0 9px;
+
+    @media (max-width: $desktop) {
+      margin: 0 0 27px;
+    }
+
+    @media (max-width: $mobile) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__item h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    color: $dark;
+
+    text-align: left;
+    margin: 0;
+
+    @media (max-width: $mobile) {
+      font-size: 16px;
+      line-height: 140%;
+
+      width: 182px;
+    }
+  }
+
+  &__item-body {
+    display: none;
+  }
+
+  &__item.active &__item-body {
+    display: block;
+    padding: 0 5px 3px;
+
+    @media (max-width: $desktop) {
+      padding: 0 0 3px;
+    }
+  }
+
+  &__item-body p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    color: $dark;
+
+    margin: 0;
+
+    @media (max-width: $mobile) {
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+
+  &__item.active p {
+    width: 527px;
+
+    @media (max-width: $desktop) {
+      width: 528px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 85%;
+    }
+  }
+
+  &__item-down-arrow-icon,
+  &__item-up-arrow-icon {
+    fill: none;
+
+    @media (max-width: $desktop) {
+      width: 23px;
+      height: 12px;
+    }
+  }
+
+  &__item.no-js {
+    cursor: default;
+  }
+
+  &__item.no-js &__item-body {
+    display: block;
+  }
+
+  &__item.no-js &__item-title {
+    margin: 0 0 9px;
+
+    @media (max-width: $desktop) {
+      margin: 0 0 27px;
+    }
+
+    @media (max-width: $mobile) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__item.no-js &__item-down-arrow-icon,
+  &__item.no-js &__item-up-arrow-icon {
+    display: none;
+  }
+}

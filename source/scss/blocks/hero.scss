@@ -10,39 +10,42 @@
   background-color: $brown-bg;
   object-fit: cover;
 
-  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+  @media (min-resolution: $retina-dpi),
+  (min-resolution: $retina-dppx) {
     background-image: url("../img/hero-img-desktop@2x.jpg");
   }
-}
 
-.hero__wrapper {
-  padding: 180px 30px 20px;
+  &__wrapper {
+    padding: 180px 30px 20px;
 
-  h2 {
-    @include clear-content(-5px);
-    @include font(45px, 58px);
+    h2 {
+      @include clear-content(-5px);
+      @include font(45px, 58px);
 
-    font-family: $accent-font;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+      font-family: $accent-font;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      @include clear-content(20px);
+      @include font(38px, 49px);
+
+      font-family: $accent-font;
+      font-style: italic;
+      font-weight: 400;
+    }
   }
 
-  p {
-    @include clear-content(20px);
-    @include font(38px, 49px);
-
-    font-family: $accent-font;
-    font-style: italic;
-    font-weight: 400;
-  }
 }
 
 @media (max-width: $tablet) {
   .hero {
     background-image: url("../img/hero-img-tablet@1x.jpg");
 
-    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @media (min-resolution: $retina-dpi),
+    (min-resolution: $retina-dppx) {
       background-image: url("../img/hero-img-tablet@2x.jpg");
     }
   }
@@ -56,7 +59,8 @@
   .hero {
     background-image: url("../img/hero-img-mobile@1x.jpg");
 
-    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @media (min-resolution: $retina-dpi),
+    (min-resolution: $retina-dppx) {
       background-image: url("../img/hero-img-mobile@2x.jpg");
     }
   }

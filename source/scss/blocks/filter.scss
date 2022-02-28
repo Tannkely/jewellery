@@ -1,102 +1,159 @@
-.filter__modal-close {
-  display: none;
-}
-
-.filter__item {
-  margin: 0;
-  padding: 0;
-  border: 1px solid $brown;
-  background-color: $white;
-
-  &:not(:last-of-type) {
-    border-bottom: none;
+.filter {
+  &__modal-close {
+    display: none;
   }
 
-  &:last-of-type {
-    margin-bottom: 35px;
-  }
+  &__item {
+    margin: 0;
+    padding: 0;
+    border: 1px solid $brown;
+    background-color: $white;
 
-  &:hover,
-  &:focus-within {
-    background-color: $line;
-  }
-}
+    &:not(:last-of-type) {
+      border-bottom: none;
+    }
 
-.filter__item-button {
-  @include font(16px, 21px);
-  position: relative;
-  width: 100%;
-  display: block;
-  padding: 23px;
+    &:last-of-type {
+      margin-bottom: 35px;
+    }
 
-  font-family: $main-font;
-  font-weight: 500;
-  text-align: left;
-  color: $dark;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  &::after {
-    position: absolute;
-    right: 27px;
-    top: 22px;
-    width: 15px;
-    height: 8px;
-    content: url("../img/sprite/icon-arrow-bottom.svg");
-  }
-}
-
-.filter__list {
-  @include clear-list;
-  padding-left: 57px;
-
-  li {
-    margin-bottom: 13px;
-
-    &:last-child {
-      margin-bottom: 25px;
+    &:hover,
+    &:focus-within {
+      background-color: $line;
     }
   }
 
-  label {
-    @include font(14px, 18px);
-    color: $dark;
+  &__item--open {
+    .filter__content {
+      display: block;
+    }
+
+    .filter__item-button::after {
+      top: 38px;
+      transform: rotate(180deg);
+    }
   }
 
-  input[type="checkbox"] + label {
+  &__item-button {
+    @include font(16px, 21px);
     position: relative;
-    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 23px;
 
-    &::before {
-      position: absolute;
-      top: 2px;
-      left: -22px;
-      width: 15px;
-      height: 15px;
-      border: 1px solid $brown;
-      content: "";
+    font-family: $main-font;
+    font-weight: 500;
+    text-align: left;
+    color: $dark;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__list {
+    @include clear-list;
+    padding-left: 57px;
+
+    li {
+      margin-bottom: 13px;
+
+      &:last-child {
+        margin-bottom: 25px;
+      }
+    }
+
+    label {
+      @include font(14px, 18px);
+      color: $dark;
+    }
+
+    input[type="checkbox"]+label {
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        top: 2px;
+        left: -22px;
+        width: 15px;
+        height: 15px;
+        border: 1px solid $brown;
+        content: "";
+      }
+    }
+
+
+    input[type="checkbox"]:checked+label::before {
+      background-color: $brown;
     }
   }
 
-  input[type="checkbox"]:checked + label::before {
+  &__content {
+    display: none;
+  }
+
+  &__price {
+    padding: 0 0 52px 27px;
+  }
+
+  &__price-controls {
+    position: relative;
+    width: 200px;
+    height: 1px;
+    background-color: $brown-light;
+
+    label {
+      @include font(14px, 18px);
+      position: absolute;
+      top: 16px;
+      color: $dark;
+
+      &:first-of-type {
+        left: 34px;
+      }
+
+      &:last-of-type {
+        right: 28px;
+      }
+    }
+  }
+
+  &__line-depth {
+    position: relative;
+    width: 60%;
+    height: 1px;
+    left: 42px;
     background-color: $brown;
   }
-}
 
-.filter__content {
-  display: none;
-}
+  &__line-pin {
+    position: absolute;
+    top: -7px;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    border-radius: 50%;
+    background-color: $brown;
+    outline-color: $brown;
+    cursor: pointer;
 
-.filter__item--open {
-  .filter__content {
-    display: block;
-  }
+    &--min {
+      left: 42px;
+    }
 
-  .filter__item-button::after {
-    top: 38px;
-    transform: rotate(180deg);
+    &--max {
+      right: 38px;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $brown-light;
+    }
+
+    &:active {
+      background-color: $brown-light;
+    }
   }
 }
 
@@ -111,69 +168,6 @@
   }
 }
 
-.filter__price {
-  padding: 0 0 52px 27px;
-}
-
-.filter__price-controls {
-  position: relative;
-  width: 200px;
-  height: 1px;
-  background-color: $brown-light;
-
-  label {
-    @include font(14px, 18px);
-    position: absolute;
-    top: 16px;
-    color: $dark;
-
-    &:first-of-type {
-      left: 34px;
-    }
-
-    &:last-of-type {
-      right: 28px;
-    }
-  }
-}
-
-.filter__line-depth {
-  position: relative;
-  width: 60%;
-  height: 1px;
-  left: 42px;
-  background-color: $brown;
-}
-
-.filter__line-pin {
-  position: absolute;
-  top: -7px;
-  width: 15px;
-  height: 15px;
-  border: 0;
-  border-radius: 50%;
-  background-color: $brown;
-  outline-color: $brown;
-  cursor: pointer;
-
-  &--min {
-    left: 42px;
-  }
-
-  &--max {
-    right: 38px;
-  }
-
-  &:hover,
-  &:focus {
-    border: 1px solid $brown-light;
-  }
-
-  &:active {
-    background-color: $brown-light;
-  }
-}
-
 @media (max-width: $tablet) {
   .filter {
     position: relative;
@@ -182,7 +176,7 @@
     box-shadow: 0 5px 32px 0 $shadow;
   }
 
-  .filter > .button {
+  .filter>.button {
     width: 85%;
     margin-left: 20px;
   }
@@ -257,7 +251,7 @@
       @include font(16px, 21px);
     }
 
-    input[type="checkbox"] + label::before {
+    input[type="checkbox"]+label::before {
       left: -26px;
       width: 18px;
       height: 18px;
@@ -296,11 +290,11 @@
     margin: 71px auto;
   }
 
-  .filter > .button--brown {
+  .filter>.button--brown {
     margin-bottom: 20px;
   }
 
-  .filter > .button--white {
+  .filter>.button--white {
     margin-bottom: 30px;
   }
 

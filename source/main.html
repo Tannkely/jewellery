@@ -14,62 +14,67 @@
 </head>
 
 <body>
-  <header class="page-header page-header--closed page-header--nojs">
-      <div class="page-header__wrapper wrapper">
-        <button class="page-header__toggle" type="button">
-          <span class="visually-hidden">Open or close menu</span>
-        </button>
-
-        <form class="page-header__form form form--search" method="GET" action="main.html">
-          <label for="search" aria-label="search">
-            <svg width="14" height="14">
+  <header class="page-header page-header--closed no-js">
+    <div class="page-header__up-container">
+      <div class="page-header__inner-up-container">
+        <div class="page-header__hamburger">
+          <button type="button">
+            <svg class="page-header__hamburger-icon" width="25" height="18" viewBox="0 0 25 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 1H25M0 9H25M0 17H25" stroke="#1D1613" stroke-width="2" />
+              <use xlink:href="img/sprite_auto.svg#hamburger"></use>
+            </svg>
+          </button>
+        </div>
+        <form class="page-header__search" method="POST" action="https://echo.htmlacademy.ru">
+          <span>
+            <svg class="page-header__search-icon" width="14" height="14">
               <use xlink:href="img/sprite_auto.svg#icon-search"></use>
             </svg>
-          </label>
-          <input type="search" id="search" name="search" placeholder="Type here to search" />
+          </span>
+          <label class="visually-hidden" for="search">Search</label>
+          <input class="page-header__search-input" type="search" name="search" id="search"
+            placeholder="Type here to search">
         </form>
-
-        <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery" href="#">
-          <svg width="66" height="66">
-            <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
-          </svg>
-        </a>
-
-        <a class="page-header__login modal-open modal-open--login" href="#">Login</a>
-
-        <a class="page-header__cart" href="#">Cart 0</a>
-      <nav class="page-header__nav">
-        <ul class="page-header__site-menu">
-          <li>
-            <a href="catalog.html">What’s new</a>
-          </li>
-          <li>
-            <a href="catalog.html">Chokers</a>
-          </li>
-          <li>
-            <a href="catalog.html">Necklaces</a>
-          </li>
-          <li>
-            <a href="catalog.html">Rings</a>
-          </li>
-          <li>
-            <a href="catalog.html">Earrings</a>
-          </li>
-        </ul>
-
-        <ul class="page-header__site-menu page-header__site-menu--about">
-          <li>
-            <a href="catalog.html">About CH</a>
-          </li>
-          <li>
-            <a href="catalog.html">Stores & Hours</a>
-          </li>
-          <li>
-            <a href="catalog.html">Contact Us</a>
-          </li>
-        </ul>
-      </nav>
+        <div class="page-header__logo-container">
+          <a aria-label="Логотип интернет-магазина Jewellery" href="main.html">
+            <svg class="page-header__logo-icon" width="66" height="66">
+              <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
+            </svg>
+          </a>
+        </div>
+        <div class="page-header__user-nav user-nav">
+          <a class="user-nav__cart" href="#">Cart <span>0</span></a>
+          <a class="user-nav__login login-link modal-button" href="login.html">Login</a>
+          <a class="user-nav__cart-icon-wrap" href="#">
+            <svg class="user-nav__cart-icon" width="20" height="18" viewBox="0 0 20 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14 5C14 6.06087 13.5786 7.07828 12.8284 7.82843C12.0783 8.57857 11.0609 9 10 9C8.93913 9 7.92172 8.57857 7.17157 7.82843C6.42143 7.07828 6 6.06087 6 5M1 1H19V17H1V1Z"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <use xlink:href="img/sprite_auto.svg#cart"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
+    <nav class="main-nav">
+      <div class="main-nav__container-up">
+        <a href="catalog.html">What’s new</a>
+        <a href="catalog.html">Chokers</a>
+        <a href="catalog.html">Necklaces</a>
+        <a href="catalog.html">Rings</a>
+        <a href="catalog.html">Earrings</a>
+      </div>
+      <div class="main-nav__container-down">
+        <a href="#">About CH</a>
+        <a href="#">Store & Hours</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="main-nav__login">
+        <a class="main-nav__login-link login-link modal-button" href="login.html">Login</a>
+      </div>
+    </nav>
   </header>
 
   <main class="page-content">
@@ -84,13 +89,39 @@
 
     <section class="slider-block new-items">
       <div class="new-items__container">
-        <div class="new-items__slider slider">
-          <div class="new-items__up-container">
+
+        <!-- Заголовок секции + кнопки слайдера -->
+        <div class="new-items__up-container">
+          <div class="new-items__up-container-left">
+
+            <button class="slider__button slider__button--prev">
+              <svg width="30" height="11" aria-hidden="true">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-left"></use>
+              </svg>
+            </button>
+
+          </div>
+
+          <div class="new-items__up-container-center">
             <h2>New In</h2>
             <a href="#">Shop Now</a>
           </div>
+
+          <div class="new-items__up-container-right">
+
+            <button class="slider__button slider__button--next">
+              <svg width="30" height="11" aria-hidden="true">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="new-items__slider slider">
+
           <div class="swiper-container slider__container">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper slider__wrapper">
               <div class="swiper-slide slider__slide">
                 <a href="#">
                   <div class="slider__slide-img-wrap">
@@ -344,19 +375,13 @@
             </div>
             <!-- Вид пагинация не меняется при изменении разрешения в devtools,
             необходимо перезагрузить страницу -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev slider__button-prev">
-              <svg width="30" height="11" aria-hidden="true">
-                <use xlink:href="img/sprite_auto.svg#icon-arrow-left"></use>
-              </svg>
+            <div class="slider__pagination">
+
             </div>
-            <div class="swiper-button-next slider__button-next">
-              <svg width="30" height="11" aria-hidden="true">
-                <use xlink:href="img/sprite_auto.svg#icon-arrow-right"></use>
-              </svg>
-            </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
@@ -413,30 +438,68 @@
     </section>
 
     <section class="faq">
-      <div class="faq__wrapper wrapper">
-        <h2>Frequently asked questions</h2>
-        <ul class="faq__list faq__list--nojs">
-          <li class="faq__item faq__item--open">
-            <button type="button">What materials are the&nbsp;jewellery made of?</button>
-            <p>Our jewellerry is made of solid gold, silver or leather. Also, some jewellery contains precious and
-              semiprecious stones and crystals.</p>
-          </li>
-          <li class="faq__item">
-            <button type="button">Which countries do&nbsp;you&nbsp;deliver to?</button>
-            <p>Our jewellerry is made of solid gold, silver or leather. Also, some jewellery contains precious and
-              semiprecious stones and crystals.</p>
-          </li>
-          <li class="faq__item">
-            <button type="button">What are the payment&nbsp;methods?</button>
-            <p>Our jewellerry is made of solid gold, silver or leather. Also, some jewellery contains precious and
-              semiprecious stones and crystals.</p>
-          </li>
-          <li class="faq__item">
-            <button type="button">Can I return the jewellery&nbsp;if it didn’t fit me?</button>
-            <p>Our jewellerry is made of solid gold, silver or leather. Also, some jewellery contains precious and
-              semiprecious stones and crystals.</p>
-          </li>
-        </ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq__accordion accordion">
+        <div class="accordion__item no-js" tabindex="0">
+          <div class="accordion__item-title">
+            <h3>What materials are the jewellery made of?</h3>
+            <svg class="accordion__item-up-arrow-icon" width="17" height="10" aria-hidden="true">
+              <use xlink:href="img/sprite_auto.svg#down-arrow"></use>
+            </svg>
+          </div>
+          <div class="accordion__item-body active">
+            <p>
+              Our jewellerry is made of solid gold, silver or leather. Also, some
+              jewellery contains precious and semiprecious stones and
+              crystals.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item no-js" tabindex="0">
+          <div class="accordion__item-title">
+            <h3>Which countries do&nbsp;you deliver to?</h3>
+            <svg class="accordion__item-up-arrow-icon" width="17" height="10" aria-hidden="true">
+              <use xlink:href="img/sprite_auto.svg#down-arrow"></use>
+            </svg>
+          </div>
+          <div class="accordion__item-body">
+            <p>
+              Our jewellerry is made of solid gold, silver or leather. Also, some
+              jewellery contains precious and semiprecious stones and
+              crystals.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item no-js" tabindex="0">
+          <div class="accordion__item-title">
+            <h3>What are the payment methods?</h3>
+            <svg class="accordion__item-up-arrow-icon" width="17" height="10" aria-hidden="true">
+              <use xlink:href="img/sprite_auto.svg#down-arrow"></use>
+            </svg>
+          </div>
+          <div class="accordion__item-body">
+            <p>
+              Our jewellerry is made of solid gold, silver or leather. Also, some
+              jewellery contains precious and semiprecious stones and
+              crystals.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item no-js" tabindex="0">
+          <div class="accordion__item-title">
+            <h3>Can I return the jewellery&nbsp;if&nbsp;it&nbsp;didn’t&nbsp;fit&nbsp;me?</h3>
+            <svg class="accordion__item-up-arrow-icon" width="17" height="10" aria-hidden="true">
+              <use xlink:href="img/sprite_auto.svg#down-arrow"></use>
+            </svg>
+          </div>
+          <div class="accordion__item-body">
+            <p>
+              Our jewellerry is made of solid gold, silver or leather. Also, some
+              jewellery contains precious and semiprecious stones and
+              crystals.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -528,7 +591,7 @@
           <button class="page-footer__submit" type="submit">
             Sign Up&nbsp;&nbsp;
             <svg width="29" height="12">
-              <use xlink:href="img/sprite_auto.svg#icon-arrow-right"></use>
+              <use xlink:href="img/sprite_auto.svg#icon-arrow-right-submit"></use>
             </svg>
           </button>
         </form>
