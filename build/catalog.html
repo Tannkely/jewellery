@@ -86,12 +86,13 @@
       <a class="catalog__filter-button button button--brown modal-open" href="#">Filter</a>
 
       <form class="catalog__form filter filter--nojs filter--modal" method="GET" action="catalog.html">
-        <button type="button" aria-label="Close modal window"></button>
-        <svg class="filter__modal-close" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="16" fill="#1D1613"></circle>
-          <path d="M16 14.445L21.445 9 23 10.555 17.555 16 23 21.445 21.445 23 16 17.555 10.555 23 9 21.445 14.445 16 9 10.555 10.555 9 16 14.445z" fill="#fff"></path>
+        <button class="filter__modal-close" type="button" aria-label="Close modal window">
+          <svg class="filter__modal-close" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="#1D1613"></circle>
+            <path d="M16 14.445L21.445 9 23 10.555 17.555 16 23 21.445 21.445 23 16 17.555 10.555 23 9 21.445 14.445 16 9 10.555 10.555 9 16 14.445z" fill="#fff"></path>
             <use xlink:href="img/sprite_auto.svg#icon-round-close"></use>
-        </svg>
+          </svg>
+        </button>
 
         <fieldset class="filter__item filter__item--open">
           <button class="filter__item-button" type="button">Product</button>
