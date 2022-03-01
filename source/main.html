@@ -10,7 +10,7 @@
   <link rel="prefetch" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
   <link rel="prefetch" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" /> -->
 </head>
 
 <body>
@@ -503,79 +503,74 @@
       </div>
     </section>
 
-    <section class="follow">
-      <div class="follow__wrapper wrapper">
+    <section class="follow-us">
+      <div class="follow-us__up-container">
         <h2>@Chjewellery</h2>
         <a href="#">Follow Us</a>
-        <ul class="follow__list">
-          <li class="follow__item follow__item--first">
-            <picture>
-              <!-- 1x: 230px; 2x: 460px -->
-              <source srcset="img/bottom-image-1-desktop@1x.webp 1x, img/bottom-image-1-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 230px; 2x: 460px -->
-              <img src="img/bottom-image-1-desktop@1x.jpg" srcset="img/bottom-image-1-desktop@2x.jpg 2x" width="230"
-                height="230" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-            <picture>
-              <!-- 1x: 230px; 2x: 460px -->
-              <source srcset="img/bottom-image-2-desktop@1x.webp 1x, img/bottom-image-2-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 230px; 2x: 460px -->
-              <img src="img/bottom-image-2-desktop@1x.jpg" srcset="img/bottom-image-2-desktop@2x.jpg 2x" width="230"
-                height="154" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-          </li>
-
-          <li class="follow__item follow__item--second">
-            <picture>
-              <!-- 1x: 400px; 2x: 800px -->
-              <source srcset="img/bottom-image-3-desktop@1x.webp 1x, img/bottom-image-3-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 400px; 2x: 800px -->
-              <img src="img/bottom-image-3-desktop@1x.jpg" srcset="img/bottom-image-2-desktop@2x.jpg 2x" width="400"
-                height="414" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-          </li>
-
-          <li class="follow__item follow__item--third">
-            <picture>
-              <!-- 1x: 232px; 2x: 464px -->
-              <source srcset="img/bottom-image-4-desktop@1x.webp 1x, img/bottom-image-4-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 232px; 2x: 464px -->
-              <img src="img/bottom-image-4-desktop@1x.jpg" srcset="img/bottom-image-4-desktop@2x.jpg 2x" width="232"
-                height="193" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-            <picture>
-              <!-- 1x: 218px; 2x: 436px -->
-              <source srcset="img/bottom-image-5-desktop@1x.webp 1x, img/bottom-image-5-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 218px; 2x: 436px -->
-              <img src="img/bottom-image-5-desktop@1x.jpg" srcset="img/bottom-image-5-desktop@2x.jpg 2x" width="218"
-                height="191" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-          </li>
-
-          <li class="follow__item follow__item--fourth">
-            <picture>
-              <!-- 1x: 218px; 2x: 436px -->
-              <source srcset="img/bottom-image-6-desktop@1x.webp 1x, img/bottom-image-6-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 218px; 2x: 436px -->
-              <img src="img/bottom-image-6-desktop@1x.jpg" srcset="img/bottom-image-6-desktop@2x.jpg 2x" width="218"
-                height="218" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-            <picture>
-              <!-- 1x: 232px; 2x: 464px -->
-              <source srcset="img/bottom-image-7-desktop@1x.webp 1x, img/bottom-image-7-desktop@2x.webp 2x"
-                type="image/webp" />
-              <!-- 1x: 232px; 2x: 464px -->
-              <img src="img/bottom-image-7-desktop@1x.jpg" srcset="img/bottom-image-7-desktop@2x.jpg 2x" width="232"
-                height="166" alt="Photos of jewelry buyers from our online store" />
-            </picture>
-          </li>
-        </ul>
+      </div>
+      <div class="follow-us__grid">
+        <div class="follow-us__grid-photo follow-us__grid-photo--1">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/22-mobile.webp 1x, img/22-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/15-tablet.webp 1x, img/15-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/8-inst-1-desktop.webp 1x, img/8-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/8-inst-1-desktop.jpg" loading="lazy" width="230" height="230" alt="alve odonnell">
+            <!-- 1х: 230px/230px; 2x: 460px/460px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--2">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/16-mobile.webp 1x, img/16-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/9-tablet.webp 1x, img/9-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/1-inst-1-desktop.webp 1x, img/1-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/1-inst-1-desktop.jpg" loading="lazy" width="230" height="150" alt="alve odonnell">
+            <!-- 1х: 230px/150px; 2x: 460px/300px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--3">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/10-mobile.webp 1x, img/10-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/10-tablet.webp 1x, img/10-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/2-inst-1-desktop.webp 1x, img/2-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/2-inst-1-desktop.jpg" loading="lazy" width="399" height="414" alt="alve odonnell">
+            <!-- 1х: 399px/412px; 2x: 798px/824px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--4">
+          <picture>
+            <source media="(max-width: 1023px)" srcset="img/11-tablet.webp 1x, img/11-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/4-inst-1-desktop.webp 1x, img/4-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/4-inst-1-desktop.jpg" loading="lazy" width="230" height="230" alt="alve odonnell">
+            <!-- 1х: 230px/230px; 2x: 460px/460px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--5">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/19-mobile.webp 1x, img/19-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/12-tablet.webp 1x, img/12-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/5-inst-1-desktop.webp 1x, img/5-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/5-inst-1-desktop.jpg" loading="lazy" width="230" height="150" alt="alve odonnell">
+            <!-- 1х: 230px/150px; 2x: 460px/300px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--6">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/alve-odonnell-unsplash-mobile.webp 1x, img/alve-odonnell-unsplash-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/13-tablet.webp 1x, img/13-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/6-inst-1-desktop.webp 1x, img/6-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/6-inst-1-desktop.jpg" loading="lazy" width="230" height="230" alt="alve odonnell">
+            <!-- 1х: 230px/230px; 2x: 460px/460px -->
+          </picture>
+        </div>
+        <div class="follow-us__grid-photo follow-us__grid-photo--7">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/21-mobile.webp 1x, img/21-mobile@2x.webp 2x" type="image/webp">
+            <source media="(max-width: 1023px)" srcset="img/14-tablet.webp 1x, img/14-tablet@2x.webp 2x" type="image/webp">
+            <source media="(min-width: 1024px)"  srcset="img/7-inst-1-desktop.webp 1x, img/7-inst-1-desktop@2x.webp 2x" type="image/webp">
+            <img src="img/7-inst-1-desktop.jpg" loading="lazy" width="230" height="150" alt="alve odonnell">
+            <!-- 1х: 230px/150px; 2x: 460px/300px -->
+          </picture>
+        </div>
       </div>
     </section>
   </main>

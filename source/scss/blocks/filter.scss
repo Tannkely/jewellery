@@ -47,7 +47,7 @@
     color: $dark;
     background-color: transparent;
     border: none;
-    outline: none;
+    // outline: none;
     cursor: pointer;
   }
 
@@ -75,7 +75,7 @@
     border: 0;
     border-radius: 50%;
     background-color: $brown;
-    outline-color: $brown;
+    // outline-color: $brown;
     cursor: pointer;
 
     &--min {
