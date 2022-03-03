@@ -37,9 +37,7 @@
 
   &__links-list {
     @include clear-list;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    column-count: 2;
   }
 
   &__social-list {
@@ -119,7 +117,7 @@
 }
 
 .page-footer__links-item {
-  width: 43%;
+  // width: 43%;
   margin-bottom: 21px;
 
   a {
@@ -197,7 +195,7 @@
     }
 
     &--delivery {
-      margin-bottom: 40px;
+      // margin-bottom: 40px;
       order: 3;
     }
 

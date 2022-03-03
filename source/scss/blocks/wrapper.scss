@@ -1,6 +1,6 @@
 .wrapper {
   max-width: $wrapper;
-  min-width: $desktop;
+  // min-width: $desktop;
   margin: 0 auto;
 
   @media (min-width: $desktop) and (max-width: $wrapper-max) {
@@ -9,7 +9,7 @@
 
   @media (max-width: $tablet) {
     max-width: $tablet;
-    min-width: $mobile;
+    // min-width: $mobile;
   }
 
   @media (max-width: $mobile) {

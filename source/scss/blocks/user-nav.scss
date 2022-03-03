@@ -34,7 +34,7 @@
     }
   }
 
-  & a:last-of-type {
+  &__cart-icon-wrap {
     display: none;
 
     @media (max-width: $desktop) {
@@ -47,8 +47,7 @@
     stroke: $dark;
   }
 
-  &__login,
-  &__cart {
+  & a:not(.user-nav__cart-icon-wrap) {
     @media (max-width: $desktop) {
       display: none;
     }

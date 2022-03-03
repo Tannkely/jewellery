@@ -100,9 +100,11 @@
     }
 
     .blog__item-text {
-      position: absolute;
-      top: 331px;
-      right: 0;
+      overflow: hidden;
+      display: box;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
     }
   }
 }

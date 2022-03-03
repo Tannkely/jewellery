@@ -13,11 +13,13 @@
   }
 
   &__container-up {
-    max-width: 493px;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    column-gap: 35px;
-    margin: 0 0 0 10px;
+    // max-width: 493px;
+    display: flex;
+    // grid-template-columns: repeat(5, auto);
+    text-align: center;
+    gap: 35px;
+    // margin: 0 0 0 10px;
+    overflow-x: auto;
 
     @media (max-width: $desktop) {
       margin: 0 0 39px;
@@ -46,7 +48,8 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #1d1613;
+  color: $dark;
+  white-space: nowrap;
 
   &:hover {
     color: $grey;
