@@ -102,10 +102,13 @@
 
     .blog__item-text {
       overflow: hidden;
-      display: box;
+      // display: absolute;
       line-clamp: 2;
       -webkit-box-orient: vertical;
       box-orient: vertical;
+      position: absolute;
+      top: 331px;
+      right: 0;
     }
   }
 }
@@ -160,7 +163,7 @@
     flex-direction: column;
 
     img {
-      width: 290px;
+      width: 100%;
       height: 256px;
     }
 

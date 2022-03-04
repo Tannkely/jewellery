@@ -1,0 +1,124 @@
+.pin {
+  padding: 0 98px 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: $desktop) {
+    padding: 0 45px 80px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 15px 71px;
+  }
+
+  &-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @media (max-width: $desktop) {
+      margin-bottom: 62px;
+    }
+
+    @media (max-width: $mobile) {
+      margin-bottom: 44px;
+    }
+
+    & h2 {
+      font-family: "Cormorant Garamond", "Georgia", serif;
+      font-weight: bold;
+      font-size: 34px;
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: $dark;
+
+      margin: 0 0 27px;
+
+      @media (max-width: $desktop) {
+        margin: 0 0 20px;
+      }
+    }
+
+    & a {
+      font-family: "Poppins", "Arial", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: $dark;
+
+      display: inline-flex;
+      border-bottom: 1px solid $brown;
+      padding-bottom: 5px;
+
+      &:hover {
+        color: $brown;
+      }
+    }
+  }
+
+  &-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 27px;
+    grid-row-gap: 34px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.pin-item {
+  &--wide {
+    grid-row: span 2;
+  }
+}
+
+.pin-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: $tablet) {
+  .pin {
+    margin-bottom: 80px;
+  }
+
+  .pin h2 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .pin {
+    margin-bottom: 70px;
+  }
+
+  .pin-link {
+    margin-bottom: 50px;
+  }
+
+  .pin-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 24px;
+    grid-row-gap: 27px;
+  }
+
+  .pin-item {
+    &--wide {
+      grid-row: span 2;
+    }
+
+    &--mobile-display {
+      display: none;
+    }
+  }
+}

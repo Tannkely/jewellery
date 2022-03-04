@@ -31,3 +31,21 @@ img {
 a {
   text-decoration: none;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 45px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+}

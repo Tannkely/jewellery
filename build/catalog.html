@@ -18,7 +18,7 @@
     <div class="page-header__up-container">
       <div class="page-header__inner-up-container">
         <div class="page-header__hamburger">
-          <button type="button">
+          <button type="button" aria-label="menu">
             <svg class="page-header__hamburger-icon" width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 1H25M0 9H25M0 17H25" stroke="#1D1613" stroke-width="2"></path>
               <use xlink:href="img/sprite_auto.svg#hamburger"></use>
@@ -87,78 +87,104 @@
 
       <form class="catalog__form filter filter--nojs filter--modal" method="GET" action="catalog.html">
         <button class="filter__modal-close" type="button" aria-label="Close modal window">
-          <svg class="filter__modal-close" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="16" fill="#1D1613"></circle>
             <path d="M16 14.445L21.445 9 23 10.555 17.555 16 23 21.445 21.445 23 16 17.555 10.555 23 9 21.445 14.445 16 9 10.555 10.555 9 16 14.445z" fill="#fff"></path>
             <use xlink:href="img/sprite_auto.svg#icon-round-close"></use>
           </svg>
         </button>
 
-        <fieldset class="filter__item filter__item--open">
-          <button class="filter__item-button" type="button">Product</button>
-          <ul class="filter__list filter__content">
-            <li>
-              <input class="visually-hidden" type="checkbox" id="necklaces" name="necklaces" checked="">
-              <label for="necklaces">Necklaces</label>
-            </li>
-            <li>
-              <input class="visually-hidden" type="checkbox" id="chokers" name="chokers" checked="">
-              <label for="chokers">Chokers</label>
-            </li>
-            <li>
-              <input class="visually-hidden" type="checkbox" id="rings" name="rings">
-              <label for="rings">Rings</label>
-            </li>
-            <li>
-              <input class="visually-hidden" type="checkbox" id="earrings" name="earrings" checked="">
-              <label for="earrings">Earrings</label>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset class="filter__item">
-          <button class="filter__item-button" type="button">Material</button>
-          <ul class="filter__list filter__content">
-            <li>
-              <input class="visually-hidden" type="checkbox" id="gold" name="gold" checked="">
-              <label for="gold">Gold</label>
-            </li>
-            <li>
-              <input class="visually-hidden" type="checkbox" id="silver" name="silver" checked="">
-              <label for="silver">Silver</label>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset class="filter__item">
-          <button class="filter__item-button" type="button">Collection</button>
-          <ul class="filter__list filter__content">
-            <li>
-              <input class="visually-hidden" type="checkbox" id="pink-flamingo" name="pink-flamingo" checked="">
-              <label for="pink-flamingo">Pink flamingo</label>
-            </li>
-            <li>
-              <input class="visually-hidden" type="checkbox" id="dreams" name="dreams" checked="">
-              <label for="dreams">Dreams</label>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset class="filter__item filter__item--open">
-          <button class="filter__item-button" type="button">Price</button>
-          <div class="filter__price filter__content">
-            <div class="filter__price-controls">
-              <div class="filter__line-depth"></div>
-              <button class="filter__line-pin filter__line-pin--min" type="button" aria-label="Increase"></button>
-              <button class="filter__line-pin filter__line-pin--max" type="button" aria-label="Decrease"></button>
+        <div class="modal__wrapper">
 
-              <label for="min-price">$ 55</label>
-              <input class="visually-hidden" id="min-price" type="number" name="min-price" min="0" max="210" value="55" aria-label="Min value of the price">
-              <label for="max-price">$ 155</label>
-              <input class="visually-hidden" id="max-price" type="number" name="max-price" min="0" max="210" value="155" aria-label="Max value of the price">
+          <fieldset class="filter__item filter__item--open">
+            <button class="filter__item-button" type="button" aria-label="arrow-bottom">
+              <span class="filter__item-button-text">Product</span>
+              <svg class="filter__item-button-icon" width="23" height="12" fill="transparent">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-bottom"></use>
+              </svg>
+            </button>
+            <ul class="filter__list filter__content">
+              <li>
+                <input class="visually-hidden" type="checkbox" id="necklaces" name="necklaces" checked="">
+                <label for="necklaces">Necklaces</label>
+              </li>
+              <li>
+                <input class="visually-hidden" type="checkbox" id="chokers" name="chokers" checked="">
+                <label for="chokers">Chokers</label>
+              </li>
+              <li>
+                <input class="visually-hidden" type="checkbox" id="rings" name="rings">
+                <label for="rings">Rings</label>
+              </li>
+              <li>
+                <input class="visually-hidden" type="checkbox" id="earrings" name="earrings" checked="">
+                <label for="earrings">Earrings</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filter__item">
+            <button class="filter__item-button" type="button" aria-label="arrow-bottom">
+              <span class="filter__item-button-text">Material</span>
+              <svg class="filter__item-button-icon" width="23" height="12" fill="transparent">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-bottom"></use>
+              </svg>
+            </button>
+            <ul class="filter__list filter__content">
+              <li>
+                <input class="visually-hidden" type="checkbox" id="gold" name="gold" checked="">
+                <label for="gold">Gold</label>
+              </li>
+              <li>
+                <input class="visually-hidden" type="checkbox" id="silver" name="silver" checked="">
+                <label for="silver">Silver</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filter__item">
+            <button class="filter__item-button" type="button" aria-label="arrow-bottom">
+              <span class="filter__item-button-text">Collection</span>
+              <svg class="filter__item-button-icon" width="23" height="12" fill="transparent">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-bottom"></use>
+              </svg>
+            </button>
+            <ul class="filter__list filter__content">
+              <li>
+                <input class="visually-hidden" type="checkbox" id="pink-flamingo" name="pink-flamingo" checked="">
+                <label for="pink-flamingo">Pink flamingo</label>
+              </li>
+              <li>
+                <input class="visually-hidden" type="checkbox" id="dreams" name="dreams" checked="">
+                <label for="dreams">Dreams</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filter__item filter__item--open">
+            <button class="filter__item-button" type="button" aria-label="Price">
+              <span class="filter__item-button-text">Price</span>
+              <svg class="filter__item-button-icon" width="23" height="12" fill="transparent">
+                <use xlink:href="img/sprite_auto.svg#icon-arrow-bottom"></use>
+              </svg>
+            </button>
+            <div class="filter__price filter__content">
+              <div class="filter__price-controls">
+                <div class="filter__line-depth"></div>
+                <button class="filter__line-pin filter__line-pin--min" type="button" aria-label="Increase"></button>
+                <button class="filter__line-pin filter__line-pin--max" type="button" aria-label="Decrease"></button>
+
+                <label for="min-price">$ 55</label>
+                <input class="visually-hidden" id="min-price" type="number" name="min-price" min="0" max="210" value="55" aria-label="Min value of the price">
+                <label for="max-price">$ 155</label>
+                <input class="visually-hidden" id="max-price" type="number" name="max-price" min="0" max="210" value="155" aria-label="Max value of the price">
+              </div>
             </div>
-          </div>
-        </fieldset>
-        <button class="button button--brown" type="submit">Apply</button>
-        <button class="button button--white" type="reset">Clear All</button>
+          </fieldset>
+          <button class="button button--brown" type="submit" aria-label="Apply">Apply</button>
+          <button class="button button--white" type="reset" aria-label="Clear All">Clear All</button>
+
+        </div>
       </form>
+
+
 
       <ul class="catalog__list">
         <li class="catalog__item">
@@ -341,7 +367,7 @@
         <form class="page-footer__form form form--email" method="POST" action="main.html">
           <label class="visually-hidden" for="post-email">E-mail</label>
           <input type="email" id="post-email" name="post-email" placeholder="Your E-mail" required="">
-          <button class="page-footer__submit" type="submit">
+          <button class="page-footer__submit" type="submit" aria-label="submit">
             Sign Up&nbsp;&nbsp;
             <svg width="29" height="12">
               <use xlink:href="img/sprite_auto.svg#icon-arrow-right-submit"></use>
@@ -436,7 +462,7 @@
         <input type="password" id="password" name="password" placeholder="Password" required="">
 
         <a class="login__form-link" href="#">Forgot your password?</a>
-        <button class="button button--brown" type="submit">Log In</button>
+        <button class="button button--brown" type="submit" aria-label="Log In">Log In</button>
 
         <p class="login__form-text">Don’t have an account? <a href="#">Sign up</a></p>
       </form>

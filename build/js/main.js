@@ -134,8 +134,8 @@ if (document.querySelectorAll('.filter__accordion-item').length) {
     filter.classList.remove('filter--nojs');
 
     for (let i = 0; i < filterButtons.length; i++) {
-      filterButtons[i].addEventListener('click', (evt) => {
-        evt.target.parentNode.classList.toggle('filter__item--open');
+      filterButtons[i].addEventListener('click', () => {
+        filterButtons[i].parentNode.classList.toggle('filter__item--open');
       });
     }
   }

@@ -3,7 +3,8 @@
     position: fixed;
     display: block;
     width: 100vw;
-    max-height: 100%;
+    max-height: 100vh;
+    height: 100%;
     z-index: 11;
 
     overflow-y: auto;
@@ -138,7 +139,7 @@
 }
 
 .page-header__hamburger button {
-  stroke: $white;
+  background-color: transparent;
 
   cursor: pointer;
 
