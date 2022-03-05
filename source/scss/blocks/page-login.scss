@@ -1,0 +1,19 @@
+.page-login {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: $beige;
+  width: 100%;
+  height: 100%;
+  grid-row: 1/-1;
+}
+
+.page-login__logo {
+  margin: 0 auto 80px;
+  order: -1;
+}
+
+.page-login__modal {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}

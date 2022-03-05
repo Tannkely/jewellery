@@ -1,0 +1,10 @@
+.control {
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  
+  &--nojs {
+    display: none;
+  }
+}

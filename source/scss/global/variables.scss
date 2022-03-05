@@ -1,26 +1,40 @@
-$mobile: 767px;
-$tablet: 1023px;
-$desktop: 1024px;
-
-$wrapper: 1170px;
-$wrapper-min: 320px;
-$wrapper-max: 1365px;
-
-$retina-dpi: 144dpi;
-$retina-dppx: 1.5dppx;
-
-$main-font: "Poppins", "Tahoma", "Geneva", sans-serif;
-$accent-font: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", serif;
-
-
-$brown: #a87b62;
-$brown-bg: rgba(86, 64, 52, 0.7);
-$brown-light: #f0eae4;
-$black: #000000;
-$dark: #1d1613;
+//colours
+$black: #1d1613;
+$basic-black: #000000;
 $white: #ffffff;
-$white-light: rgba(255, 255, 255, 0.75);
+$brown: #a87b62;
 $grey: #9b9997;
-$line: #f6f5f4;
-$shadow: rgba(219, 213, 208, 0.24);
-$modal-shadow: rgba(121, 121, 121, 0.24);
+$black-rgb: rgb(0, 0, 0);
+$light-grey: #f6f5f4;
+$beige: #f0eae4;
+$grey-rgb: rgb(219, 213, 208);
+
+// Viewport
+$tablet-max-width: 1023px;
+$mobile-max-width: 767px;
+$desktop-min-width: 1024px;
+
+
+//mixin
+@mixin cormorant {
+  font-family: "Cormorant Garamond", "Century Schoolbook L", "Georgia", serif;
+}
+
+@mixin poppins {
+  font-family: "Poppins", "Nimbus Sans L", "Helvetica", "Arial", sans-serif;
+}
+
+@mixin style-link {
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    color: $brown;
+  }
+
+  &:active {
+    color: inherit;
+    opacity: 0.5;
+  }
+}

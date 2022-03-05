@@ -1,35 +1,31 @@
 .button {
-  @include font(16px, 21px);
   width: 100%;
-  min-height: 68px;
-  margin-bottom: 25px;
-
-  font-family: $main-font;
+  height: 68px;
+  font-size: 16px;
   font-weight: 500;
-
-  color: $dark;
-  border: 1px solid $brown;
+  color: $white;
+  background-color: $brown;
+  border-style: none;
   cursor: pointer;
 
-  &--brown {
-    color: $white;
-    background-color: $brown;
-  }
-
-  &--white {
-    background-color: $white;
-  }
-
-  &:hover,
-  &:focus {
+  &:hover {
+    background-color: $beige;
+    opacity: 1px solid $brown;
     color: $brown;
-    background-color: $brown-light;
-    outline-color: $brown;
   }
 
   &:active {
-    color: $white;
-    background-color: $brown-bg;
-    outline-color: $brown;
+    opacity: 0.5;
+  }
+
+  &--transparent {
+    background-color: $white;
+    color: $black;
+    border: 1px solid $brown;
+
+    &:hover {
+      background-color: $brown;
+      color: $white;
+    }
   }
 }

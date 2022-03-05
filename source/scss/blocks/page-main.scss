@@ -1,0 +1,154 @@
+.page-main {
+  width: 100%;
+
+  &--catalog {
+    position: relative;
+    margin-bottom: 24px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 94px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 56px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 109px;
+      width: 100%;
+      height: 1px;
+      background-color: $light-grey;
+
+      @media (max-width: $tablet-max-width) {
+        bottom: 36px;
+      }
+
+      @media (max-width: $mobile-max-width) {
+        display: block;
+      }
+    }
+  }
+}
+
+.page-main__section-full {
+  margin-bottom: 120px;
+
+  @media (max-width: $tablet-max-width) {
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    margin-bottom: 60px;
+  }
+}
+
+.page-main__section {
+  margin: 0 auto;
+  padding-right: 98px;
+  padding-left: 98px;
+  width: 100%;
+  max-width: 1366px;
+  color: $black;
+
+  @media (max-width: $tablet-max-width) {
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &--new {
+    margin-bottom: 113px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 62px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 55px;
+    }
+  }
+
+  &--blog {
+    margin-bottom: 119px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 72px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &--faq {
+    margin-bottom: 113px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 74px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 58px;
+    }
+  }
+
+  &--gallery {
+    margin-bottom: 130px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 71px;
+    }
+  }
+
+  &--grid {
+    display: grid;
+    grid-template-columns: 21.4% 1fr;
+    column-gap: 50px;
+    margin-bottom: 74px;
+
+    @media (max-width: $tablet-max-width) {
+      display: block;
+      margin-bottom: 73px;
+    }
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.page-main__container {
+  position: relative;
+}
+
+.page-main__section-catalog {
+  margin-bottom: 80px;
+
+  @media (max-width: $tablet-max-width) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    margin-bottom: 40px;
+  }
+}
+
+.page-main__column-left {
+  @media (max-width: $tablet-max-width) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    margin-bottom: 40px;
+  }
+}

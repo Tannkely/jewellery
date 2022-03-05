@@ -1,125 +1,47 @@
-// аккордеон для блока FAQ
+(function () {
+  const accordion = document.querySelector('.accordion');
 
-if (document.querySelectorAll('.accordion__item').length) {
-  const accordionItems = document.querySelectorAll('.accordion__item');
+  const ACCORDION_HIDDEN_CLASS = 'accordion__content--hidden';
+  const ACCORDION_CURRENT_CLASS = 'accordion__item--current';
 
-  accordionItems.forEach((item) => {
-    item.classList.remove('no-js');
-    item.addEventListener('click', () => {
-      const activeAccordionItem = document.querySelector(
-        '.accordion__item.active'
-      );
+  let focus;
 
-      if (activeAccordionItem && activeAccordionItem !== item) {
-        activeAccordionItem.classList.toggle('active');
-      }
+  function closeAccordionContent(content) {
+    content.forEach(function (elem) {
+      elem.classList.add(ACCORDION_HIDDEN_CLASS);
+    })
+  }
 
-      item.classList.toggle('active');
-    });
+  function showAccordionContent(item) {
+    item.classList.toggle(ACCORDION_CURRENT_CLASS);
+    const currentContent = item.querySelector('.accordion__content');
+    currentContent.classList.toggle(ACCORDION_HIDDEN_CLASS);
 
-    item.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Enter') {
-        evt.preventDefault();
-        const activeAccordionItem = document.querySelector(
-          '.accordion__item.active'
-        );
-        if (activeAccordionItem && activeAccordionItem !== item) {
-          activeAccordionItem.classList.toggle('active');
-        }
+  }
 
-        item.classList.toggle('active');
-      }
-    });
-  });
-}
+  function openAccordion() {
+    if (accordion) {
+      const accordionContents = accordion.querySelectorAll('.accordion__content');
+      const accordionItems = accordion.querySelectorAll('.accordion__item');
 
-if (document.querySelectorAll('.filter__accordion-item').length) {
-  const filterAccordionItems = document.querySelectorAll(
-    '.filter__accordion-item'
-  );
-
-  filterAccordionItems.forEach((item) => {
-    item.classList.remove('no-js');
-
-    const filterItemTitle = item.querySelector(
-      '.filter__accordion-item-title-wrap'
-    );
-
-    filterItemTitle.addEventListener('click', (evt) => {
-      if (
-        evt.target &&
-        evt.target.closest('.filter__accordion-item-title-wrap')
-      ) {
-        if (
-          !item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active') &&
-          !item.classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.add('active');
-          item.classList.add('active');
-          item.blur();
-        } else if (
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.remove('active');
-          item.classList.remove('active');
-        }
-      }
-    });
-
-    const onFilterItemKeydown = (evt) => {
-      if (evt.key === 'Enter') {
-        evt.preventDefault();
-
-        if (
-          !item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active') &&
-          !item.classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.add('active');
-          item.classList.add('active');
-        } else if (
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.remove('active');
-          item.classList.remove('active');
-        }
-      }
-    };
-
-    item.addEventListener('keydown', onFilterItemKeydown);
-
-    const filterItemInputs = item.querySelectorAll(
-      '.filter__accordion-item-input-wrap input'
-    );
-
-    filterItemInputs.forEach((input) => {
-      input.addEventListener('keydown', (evt) => {
+      closeAccordionContent(accordionContents);
+      accordionItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          showAccordionContent(item);
+        })
+      })
+      const onDocumentKeyDown = function (evt) {
         if (evt.key === 'Enter') {
-          evt.preventDefault();
-          item.removeEventListener('keydown', onFilterItemKeydown);
-
-          if (evt.target.checked === true) {
-            evt.target.checked = false;
-          } else {
-            evt.target.checked = true;
-          }
+          showAccordionContent(focus);
         }
-      });
-    });
-  });
-}
+      }
+      const onItemFocus = function (evt) {
+        focus = evt.target;
+        document.addEventListener('keydown', onDocumentKeyDown);
+      }
+      accordion.addEventListener('focusin', onItemFocus);
+    }
+  }
+
+  openAccordion();
+})();

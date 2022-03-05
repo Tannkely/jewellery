@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -8,44 +9,21 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  position: relative;
-  margin: 0;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  font-family: $main-font;
-  font-style: normal;
-  font-weight: 500;
-
-  &.overlay--open {
-    overflow: hidden;
-  }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 a {
   text-decoration: none;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+img {
+  max-width: 100%;
 }
 
-@media (max-width: 1023px) {
-  .container {
-    padding: 0 45px;
-  }
-}
-
-@media (max-width: 767px) {
-  .container {
-    padding: 0 15px;
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0 none;
+  clip-path: inset(100%);
 }

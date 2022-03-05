@@ -3,45 +3,42 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jewellery">
-  <title>Jewellery</title>
-  <link rel="preload" href="fonts/cormorantgaramond-regular.woff2" as="font" crossorigin="anonymous">
-  <link rel="preload" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
-  <link rel="preload" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Login Ch Jewellery</title>
+  <link rel="preload" href="fonts/poppins-regular.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/poppins-medium.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/poppins-bold.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/cormorant-garamond-semi-bold.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/cormorant-garamond-bold.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/cormorant-garamond-bold-italic.woff2" as="font" crossorigin="">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
-
-  <main class="page-content page-content--login">
-    <section class="login modal modal--nojs">
-      <h1 class="visually-hidden">Login form to your personal account on the website</h1>
-      <div class="login__wrapper">
-        <a href="main.html" class="modal__close" aria-label="Close modal window">
-          <svg width="14" height="14" aria-hidden="true">
-            <use xlink:href="img/sprite_auto.svg#cross"></use>
-          </svg>
-        </a>
-        <h2>Log In</h2>
-
-        <form class="login__form" action="https://echo.htmlacademy.ru" method="POST">
-          <label class="visually-hidden" for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="Your E-mail" required="">
-          <label class="visually-hidden" for="password">E-mail</label>
-          <input type="password" id="password" name="password" placeholder="Password" required="">
-
-          <a class="login__form-link" href="#">Forgot your password?</a>
-          <button class="button button--brown" type="submit" aria-label="Log In">Log In</button>
-
-          <p>Don’t have an account? <a href="#">Sign up</a></p>
-        </form>
-      </div>
+<body class="page-body">
+  <main class="page-login">
+    <section class="page-login__modal modal modal--page">
+      <a href="main.html" class="page-login__logo logo logo--link" aria-label="Go to home page">
+        <svg width="66" height="66" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <use xlink:href="img/sprite_auto.svg#logo"></use>
+        </svg>
+      </a>
+      <h1>Log In</h1>
+      <form class="modal__form form form--black">
+        <div class="modal__input-block">
+          <label class="visually-hidden" for="email-login">Your E-mail</label>
+          <input type="email" name="email-login" id="email-login" placeholder="Your E-mail" required="">
+        </div>
+        <div class="modal__input-block">
+          <label class="visually-hidden" for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" required="">
+          <a href="#">Forgot your password?</a>
+        </div>
+        <button class="modal__submit button" type="submit">Log In</button>
+        <div class="modal__footer"><span>Don’t have an account?</span><a href="#">Sign up</a></div>
+      </form>
     </section>
   </main>
-
-  <script src="js/vendor.js"></script>
-  <script src="js/main.js"></script>
 </body>
 
 </html>

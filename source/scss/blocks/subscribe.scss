@@ -1,0 +1,24 @@
+.subscribe__submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+  font: inherit;
+  color: $white;
+  cursor: pointer;
+
+  @include style-link;
+
+  span {
+    margin-right: 7px;
+  }
+
+  svg {
+    width: 30px;
+    height: 11px;
+    stroke: currentColor;
+    transform: rotate(180deg);
+  }
+}

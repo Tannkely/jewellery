@@ -1,375 +1,436 @@
-// аккордеон для блока FAQ
+(function () {
+  const accordion = document.querySelector('.accordion');
 
-if (document.querySelectorAll('.accordion__item').length) {
-  const accordionItems = document.querySelectorAll('.accordion__item');
+  const ACCORDION_HIDDEN_CLASS = 'accordion__content--hidden';
+  const ACCORDION_CURRENT_CLASS = 'accordion__item--current';
 
-  accordionItems.forEach((item) => {
-    item.classList.remove('no-js');
-    item.addEventListener('click', () => {
-      const activeAccordionItem = document.querySelector(
-        '.accordion__item.active'
-      );
+  let focus;
 
-      if (activeAccordionItem && activeAccordionItem !== item) {
-        activeAccordionItem.classList.toggle('active');
-      }
+  function closeAccordionContent(content) {
+    content.forEach(function (elem) {
+      elem.classList.add(ACCORDION_HIDDEN_CLASS);
+    })
+  }
 
-      item.classList.toggle('active');
-    });
+  function showAccordionContent(item) {
+    item.classList.toggle(ACCORDION_CURRENT_CLASS);
+    const currentContent = item.querySelector('.accordion__content');
+    currentContent.classList.toggle(ACCORDION_HIDDEN_CLASS);
 
-    item.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Enter') {
-        evt.preventDefault();
-        const activeAccordionItem = document.querySelector(
-          '.accordion__item.active'
-        );
-        if (activeAccordionItem && activeAccordionItem !== item) {
-          activeAccordionItem.classList.toggle('active');
-        }
+  }
 
-        item.classList.toggle('active');
-      }
-    });
-  });
-}
+  function openAccordion() {
+    if (accordion) {
+      const accordionContents = accordion.querySelectorAll('.accordion__content');
+      const accordionItems = accordion.querySelectorAll('.accordion__item');
 
-if (document.querySelectorAll('.filter__accordion-item').length) {
-  const filterAccordionItems = document.querySelectorAll(
-    '.filter__accordion-item'
-  );
-
-  filterAccordionItems.forEach((item) => {
-    item.classList.remove('no-js');
-
-    const filterItemTitle = item.querySelector(
-      '.filter__accordion-item-title-wrap'
-    );
-
-    filterItemTitle.addEventListener('click', (evt) => {
-      if (
-        evt.target &&
-        evt.target.closest('.filter__accordion-item-title-wrap')
-      ) {
-        if (
-          !item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active') &&
-          !item.classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.add('active');
-          item.classList.add('active');
-          item.blur();
-        } else if (
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.remove('active');
-          item.classList.remove('active');
-        }
-      }
-    });
-
-    const onFilterItemKeydown = (evt) => {
-      if (evt.key === 'Enter') {
-        evt.preventDefault();
-
-        if (
-          !item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active') &&
-          !item.classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.add('active');
-          item.classList.add('active');
-        } else if (
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.contains('active')
-        ) {
-          item
-            .querySelector('.filter__accordion-item-body')
-            .classList.remove('active');
-          item.classList.remove('active');
-        }
-      }
-    };
-
-    item.addEventListener('keydown', onFilterItemKeydown);
-
-    const filterItemInputs = item.querySelectorAll(
-      '.filter__accordion-item-input-wrap input'
-    );
-
-    filterItemInputs.forEach((input) => {
-      input.addEventListener('keydown', (evt) => {
+      closeAccordionContent(accordionContents);
+      accordionItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          showAccordionContent(item);
+        })
+      })
+      const onDocumentKeyDown = function (evt) {
         if (evt.key === 'Enter') {
-          evt.preventDefault();
-          item.removeEventListener('keydown', onFilterItemKeydown);
+          showAccordionContent(focus);
+        }
+      }
+      const onItemFocus = function (evt) {
+        focus = evt.target;
+        document.addEventListener('keydown', onDocumentKeyDown);
+      }
+      accordion.addEventListener('focusin', onItemFocus);
+    }
+  }
 
-          if (evt.target.checked === true) {
-            evt.target.checked = false;
-          } else {
-            evt.target.checked = true;
+  openAccordion();
+})();
+
+
+'use strict';
+(function () {
+  const page = document.querySelector('.page-body');
+  const header = page.querySelector('.page-header');
+  const menu = header.querySelector('.main-navigation');
+  const menuButton = header.querySelector('.page-header__button-menu');
+  const search = header.querySelector('.search');
+
+  function openCloseMenu() {
+    header.classList.remove('page-header--nojs');
+    menu.classList.remove('main-navigation--nojs');
+    search.classList.remove('search--nojs');
+    menuButton.addEventListener('click', function () {
+      menu.classList.toggle('main-navigation--closed');
+      menu.classList.toggle('main-navigation--opened');
+      page.classList.toggle('page-body--opened-menu');
+      header.classList.toggle('page-header--opened-menu');
+      search.classList.toggle('search--opened-menu');
+      const attribute = menu.classList.contains('main-navigation--opened') ? 'close the menu' : 'open the menu';
+      menuButton.setAttribute('aria-label', attribute);
+    });
+  }
+
+  openCloseMenu();
+})();
+
+(function () {
+  const page = document.body;
+  const loginButtons = document.querySelectorAll('.login');
+  const loginTemplate = document.querySelector('#login').content.querySelector('.modal');
+  const loginModal = loginTemplate.cloneNode(true);
+  const closeLoginModalButton = loginModal.querySelector('.modal__close');
+  const emailInput = loginModal.querySelector('input[type=email]');
+  const filterButton = document.querySelector('.filter__button');
+  const filterForm = document.querySelector('.filter__form');
+  const filter = document.querySelector('.filter');
+
+  let mobileDevice = window.matchMedia("(max-width: 767px)");
+
+  const CLASS_PAGE_OPENED_POPUP = 'page-body--opened-modal';
+  const CLASS_HIDDEN_LOGIN_POPUP = 'modal--hidden';
+
+  const focusableElements = (modal) => modal.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+
+  function closeLoginModal() {
+    loginModal.classList.add(CLASS_HIDDEN_LOGIN_POPUP);
+    page.classList.remove(CLASS_PAGE_OPENED_POPUP);
+
+    closeLoginModalButton.removeEventListener('click', onCloseLoginModalButtonClick);
+  }
+
+  function closeModalEsc(evt, closeFunction) {
+    if (evt.key === 'Escape' || evt.key === 'Esc') {
+      evt.preventDefault();
+      closeFunction();
+    }
+  };
+
+  const isTargetModal = (evt, modal, classModal) => evt.target !== modal && !evt.target.classList.contains(classModal) && !modal.contains(evt.target);
+
+  function closeModalDocumentClick(evt, closeFunction, modal, classModal) {
+    if (isTargetModal(evt, modal, classModal)) {
+      closeFunction();
+    }
+  };
+
+  const onCloseLoginModalButtonClick = function () {
+    closeLoginModal();
+  }
+
+  function trapFocus(modal) {
+    const focusableElementsModal = focusableElements(modal);
+    const firstFocusableElement = focusableElementsModal[0];
+    const lastFocusableElement = focusableElementsModal[focusableElementsModal.length - 1];
+    modal.addEventListener('keydown', function (evt) {
+      if (evt.key === 'Tab') {
+        if (evt.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            evt.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            evt.preventDefault();
           }
         }
-      });
-    });
-  });
-}
-
-// аккордеон для фильтра
-
-(function () {
-  let filter = document.querySelector('.filter');
-  let filterButtons = document.querySelectorAll('.filter__item > button');
-
-  if (filter && filterButtons) {
-    filter.classList.remove('filter--nojs');
-
-    for (let i = 0; i < filterButtons.length; i++) {
-      filterButtons[i].addEventListener('click', () => {
-        filterButtons[i].parentNode.classList.toggle('filter__item--open');
-      });
-    }
-  }
-})();
-
-// мобильное меню - начиная с планшетной версии
-(function () {
-  const menu = document.querySelector('.page-header');
-  const menuButton = document.querySelector('.page-header__hamburger button');
-
-  menu.classList.remove('no-js');
-
-  if (menu && menuButton) {
-    menuButton.addEventListener('click', () => {
-      if (menu.classList.contains('page-header--closed')) {
-        menu.classList.remove('page-header--closed');
-        menu.classList.add('page-header--opened');
-        document.body.style.overflow = 'hidden';
-      } else {
-        menu.classList.add('page-header--closed');
-        menu.classList.remove('page-header--opened');
-        document.body.removeAttribute('style');
       }
-    });
+    })
   }
-})();
 
-(function () {
+  function openLoginModal() {
+    loginButtons.forEach(function (button) {
+      button.addEventListener('click', function (evt) {
+        evt.preventDefault();
+        page.prepend(loginModal);
 
-  // Обработчик нажатия на кнопку Esc при открытой модалке
-  function escapeClickHandler(evt) {
-    if (evt.key === window.utils.KeyCode.ESCAPE) {
-      evt.preventDefault();
-      setModalVisibility(false);
+        page.classList.add(CLASS_PAGE_OPENED_POPUP);
+        loginModal.classList.remove(CLASS_HIDDEN_LOGIN_POPUP);
+        emailInput.focus();
+        trapFocus(loginModal)
+
+        document.addEventListener('keydown', (evt) => closeModalEsc(evt, closeLoginModal));
+        document.addEventListener('click', (evt) => closeModalDocumentClick(evt, closeLoginModal, loginModal, 'login'));
+        closeLoginModalButton.addEventListener('click', onCloseLoginModalButtonClick);
+      })
+    })
+  }
+
+  openLoginModal();
+
+  function openFilter() {
+    if (filterForm) {
+      const filterCloseButton = filterForm.querySelector('.filter__close');
+      const inputFilter = filterForm.querySelector('input');
+      const closeFilter = () => {
+        filterForm.classList.add('filter__form--hidden');
+        page.classList.remove(CLASS_PAGE_OPENED_POPUP);
+      }
+
+      filter.classList.remove('filter--nojs');
+      filterButton.addEventListener('click', function () {
+        filterForm.classList.remove('filter__form--hidden');
+        inputFilter.focus();
+        trapFocus(filterForm);
+        if (mobileDevice.matches) {
+          page.classList.add(CLASS_PAGE_OPENED_POPUP);
+        } else {
+          page.classList.remove(CLASS_PAGE_OPENED_POPUP);
+        }
+
+        window.addEventListener('resize', function () {
+          if (mobileDevice.matches) {
+            page.classList.add(CLASS_PAGE_OPENED_POPUP);
+          } else {
+            page.classList.remove(CLASS_PAGE_OPENED_POPUP);
+          }
+
+        });
+        document.addEventListener('keydown', (evt) => closeModalEsc(evt, closeFilter));
+        document.addEventListener('click', (evt) => closeModalDocumentClick(evt, closeFilter, filterForm, 'filter__button'));
+        filterCloseButton.addEventListener('click', closeFilter);
+      })
     }
   }
 
-  // Установка видимости эл-та overlay и модалки
-  function setModalVisibility(visible, modal) {
-    if (visible) {
-      document.body.classList.add('overlay--open');
-      createOverlay();
-      document.addEventListener('keydown', escapeClickHandler);
-      modal.classList.add('modal-show');
+  openFilter();
+})();
+
+(function () {
+  const slider = document.querySelector('.slider');
+  const sliderButtonPrev = document.querySelector('.control--previous');
+  const sliderButtonNext = document.querySelector('.control--next');
+  const paginationList = document.querySelector('.pagination__list');
+  const currentPageElement = document.querySelector('.pagination__current-page');
+  const totalPagesElement = document.querySelector('.pagination__total-page');
+
+  let smallDevice = window.matchMedia("(max-width: 1023px)");
+  let mobileDevice = window.matchMedia("(max-width: 767px)");
+
+  let counter = 0;
+
+
+  function disableButton(button, value) {
+    button.disabled = value;
+  }
+
+  function changeCurrentPage(index, pagination) {
+    pagination[index].classList.remove('pagination__item--current');
+    pagination[counter].classList.add('pagination__item--current');
+  }
+
+  function getNumberPreviousCards(numberCards) {
+    return numberCards * counter;
+  }
+
+  function getNumberNextCards(cards, numberCards) {
+    return cards.length - getNumberPreviousCards(numberCards);
+  }
+
+  function isLastPages(amountPages) {
+    return (counter + 1) == amountPages;
+  }
+
+  function isFirstPages() {
+    return counter === 0
+  }
+
+  function changeStatusButton(amountPages) {
+    if (isFirstPages()) {
+      disableButton(sliderButtonPrev, true);
+      disableButton(sliderButtonNext, false);
     } else {
-      document.body.classList.remove('overlay--open');
-      if(document.querySelector('.modal-show')){
-        document.querySelector('.modal-show').classList.remove('modal-show');
-      }
-      if(document.querySelector('.overlay')){
-        document.querySelector('.overlay').remove();
-      }
-      document.removeEventListener('keydowm', escapeClickHandler);
+      disableButton(sliderButtonPrev, false);
+      disableButton(sliderButtonNext, false);
+    } if (isLastPages(amountPages)) {
+      disableButton(sliderButtonNext, true);
+      disableButton(sliderButtonPrev, false);
     }
   }
 
-  // Создание эл-та overlay со своей логикой (по клику)
-  function createOverlay() {
-    const overlay = document.createElement('div');
+  function showCardSlider(cards, numberCards, amountPages) {
+    cards.forEach(function (elem) {
+      elem.classList.add('card-product--hidden');
+      elem.classList.remove('card-product--opacity');
+    });
 
-    overlay.classList.add('overlay');
-    document.body.appendChild(overlay);
-
-    overlay.addEventListener('click', (overlayEvt) => {
-      if (overlayEvt.target === overlay) {
-        setModalVisibility(false);
+    const amountShowCards = (isLastPages(amountPages)) ? getNumberNextCards(cards, numberCards) : numberCards;
+    for (let i = getNumberPreviousCards(numberCards); i < (getNumberPreviousCards(numberCards) + amountShowCards); i++) {
+      cards[i].classList.remove('card-product--hidden');
+      function addOpacity() {
+        cards[i].classList.add('card-product--opacity');
       }
-    });
+      setTimeout(() => addOpacity(), 100);
+    }
   }
 
-  // Обработчик открытия модалки
-  function modalOpenHandler(modal) {
-    setModalVisibility(true, modal);
+  function showPreviousSliderCards(amountPages, cards, numberCards, pagination) {
+    counter--;
+    showCardSlider(cards, numberCards, amountPages)
+
+    const previousIndex = counter + 1;
+    changeCurrentPage(previousIndex, pagination);
+
+    changeStatusButton(amountPages);
   }
 
-  // Обработчик закрытия модалки
-  function modalCloseHandler(event) {
-    event.preventDefault();
-    setModalVisibility(false);
+  function showNextSliderCards(amountPages, cards, numberCards, pagination) {
+    counter++;
+    showCardSlider(cards, numberCards, amountPages)
+
+    const previousIndex = counter - 1;
+    changeCurrentPage(previousIndex, pagination);
+    changeStatusButton(amountPages);
   }
 
-  window.addEventListener('resize', modalCloseHandler);
 
+  function shiftPage(cards, numberCards, pagination, amountPages) {
+    if (paginationList) {
+      pagination[0].classList.add('pagination__item--current');
+      for (let page of pagination) {
+        page.addEventListener('click', function () {
+          for (let page of pagination) {
+            page.classList.remove('pagination__item--current');
+          }
+          this.classList.add('pagination__item--current');
+          counter = this.textContent - 1;
 
-  const modalLoginOpen = document.querySelector('.modal-button');
-  const modalLoginClose = document.querySelector('.modal__close--login');
-  const modalLogin = document.querySelector('.modal--login');
-  const email = document.querySelector('[id=email]');
-  // const loginForm = document.querySelector('.login__form');
+          showCardSlider(cards, numberCards, amountPages)
 
-  const modalFilterOpen = document.querySelector('.catalog__filter-button');
-  const modalFilterClose = document.querySelector('.filter__modal-close');
-  const modalFilter = document.querySelector('.filter');
+          changeStatusButton(amountPages);
+        })
+      }
+    }
 
-
-  if (modalLoginOpen && modalLogin) {
-    modalLoginOpen.addEventListener('click', (event) => {
-      event.preventDefault();
-
-      modalOpenHandler(modalLogin);
-      email.focus();
-
-    });
   }
 
-  if (modalLoginClose) {
-    modalLoginClose.addEventListener('click', modalCloseHandler);
+
+  function createPagination(amountPages) {
+    if (paginationList) {
+      if (paginationList.style.display != 'none') {
+        const paginationFragment = document.createDocumentFragment();
+        for (let i = 1; i <= amountPages; i++) {
+          const paginationTemplate = document.querySelector('#pagination').content.querySelector('li');
+          const paginationElement = paginationTemplate.cloneNode(true);
+          const buttonPage = paginationElement.querySelector('button');
+          buttonPage.textContent = i;
+          paginationFragment.append(paginationElement);
+        }
+        paginationList.textContent = '';
+        paginationList.append(paginationFragment);
+      }
+    }
   }
 
-  if (modalFilterOpen && modalFilter) {
-    modalFilterOpen.addEventListener('click', (event) => {
-      event.preventDefault();
-      modalOpenHandler(modalFilter);
-    });
+
+  function swipeSlider(cards, amountPages, numberCards, pagination) {
+    slider.addEventListener('touchstart', handleTouchStart, false);
+    slider.addEventListener('touchmove', handleTouchMove, false);
+
+    let startPoint = 0;
+    let endPoint = 0;
+    const SENSITIVITY = 20;
+
+    function handleTouchStart(evt) {
+      const startTouch = evt.changedTouches[0];
+      startPoint = startTouch.clientX;
+    }
+
+    function handleTouchMove(evt) {
+      if (!startPoint) {
+        return
+      }
+
+      endPoint = evt.changedTouches[0].clientX;
+      const differencePoint = startPoint - endPoint;
+
+      if (Math.abs(differencePoint) > SENSITIVITY) {
+
+        if (differencePoint > 0) {
+
+          if (isLastPages(amountPages)) {
+            return;
+          } else {
+            evt.preventDefault();
+            showNextSliderCards(amountPages, cards, numberCards, pagination)
+            if (currentPageElement) {
+              currentPageElement.textContent = counter + 1;
+            }
+
+
+          }
+        } else if (differencePoint < 0) {
+
+          if (isFirstPages()) {
+            return;
+          } else {
+            evt.preventDefault();
+            showPreviousSliderCards(amountPages, cards, numberCards, pagination);
+            if (currentPageElement) {
+              currentPageElement.textContent = counter + 1;
+            }
+          }
+        }
+
+        startPoint = 0;
+        endPoint = 0;
+      }
+    }
   }
 
-  if (modalFilterClose) {
-    modalFilterClose.addEventListener('click', modalCloseHandler);
+
+
+  function scrollSlider(cards, amountPages, numberCards) {
+    slider.classList.remove('slider--nojs');
+    cards.forEach((card) => card.classList.remove('card-product--nojs'));
+    sliderButtonPrev.classList.remove('control--nojs');
+    sliderButtonNext.classList.remove('control--nojs');
+    showCardSlider(cards, numberCards, amountPages);
+
+    let pages;
+    if (paginationList) {
+      pages = paginationList.getElementsByClassName('pagination__item');
+      pages[0].classList.add('pagination__item--current');
+    }
+
+    changeStatusButton(amountPages)
+
+    if (cards.length <= numberCards) {
+      disableButton(sliderButtonPrev, true);
+      disableButton(sliderButtonNext, true);
+    } else if (mobileDevice.matches) {
+      swipeSlider(cards, amountPages, numberCards, pages);
+      if (currentPageElement) {
+        currentPageElement.textContent = counter + 1;
+        totalPagesElement.textContent = amountPages;
+      }
+    } else if (smallDevice.matches) {
+      swipeSlider(cards, amountPages, numberCards, pages);
+
+      sliderButtonPrev.addEventListener('click', () => showPreviousSliderCards(amountPages, cards, numberCards, pages));
+      sliderButtonNext.addEventListener('click', () => showNextSliderCards(amountPages, cards, numberCards, pages));
+
+      shiftPage(cards, numberCards, pages, amountPages);
+    } else {
+      sliderButtonPrev.addEventListener('click', () => showPreviousSliderCards(amountPages, cards, numberCards, pages));
+      sliderButtonNext.addEventListener('click', () => showNextSliderCards(amountPages, cards, numberCards, pages));
+
+      shiftPage(cards, numberCards, pages, amountPages)
+    }
   }
-})();
 
-(function () {
-  if (!document.querySelector('.swiper-container')) {
-    // Прерывание функции
-    return;
+  function controlSlider() {
+    const sliderCards = slider.querySelectorAll('li');
+    const numberSliderCards = slider.classList.contains('catalog__list') ? 12 : (smallDevice.matches) ? 2 : 4;
+    const amountPages = Math.ceil(sliderCards.length / numberSliderCards);
+    createPagination(amountPages);
+    scrollSlider(sliderCards, amountPages, numberSliderCards);
   }
 
-  new window.Swiper('.swiper-container', {
-    navigation: {
-      prevEl: '.slider__button--prev',
-      nextEl: '.slider__button--next',
-    },
-    pagination: {
-      el: '.slider__pagination',
-      bulletClass: 'slider__pagination-bullet',
-      bulletActiveClass: 'slider__pagination-bullet--active',
-      type: 'bullets',
-      clickable: true,
-      renderBullet: function (index, className) {
-        // todo
-        return `<span class="${className}">${index + 1}</span>`;
-      },
-    },
-    grabCursor: true,
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-    autoheight: true,
-    slidesPerView: 'auto',
-    spaceBetween: 30,
-    slidesPerGroup: 4,
-    loop: true,
-    breakpoints: {
-      320: {
-        pagination: {
-          el: '.slider__pagination',
-          bulletClass: 'slider__pagination-bullet',
-          bulletActiveClass: 'slider__pagination-bullet--active',
-          type: 'fraction',
-          clickable: false,
-          renderFraction: function (currentClass, totalClass) {
-            // todo
-            return (
-              `<span class="${currentClass}"></span>` +
-              `&nbsp;&nbsp;of&nbsp;&nbsp;` +
-              `<span class="${totalClass}"></span>`
-            );
-          },
-        },
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-      },
-      768: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        pagination: {
-          el: '.slider__pagination',
-          bulletClass: 'slider__pagination-bullet',
-          bulletActiveClass: 'slider__pagination-bullet--active',
-          type: 'fraction',
-          clickable: false,
-          renderFraction: function (currentClass, totalClass) {
-            // todo
-            return (
-              `<span class="${currentClass}"></span>` +
-              `&nbsp;&nbsp;of&nbsp;&nbsp;` +
-              `<span class="${totalClass}"></span>`
-            );
-          },
-        },
-      },
-      1024: {
-        pagination: {
-          el: '.slider__pagination',
-          bulletClass: 'slider__pagination-bullet',
-          bulletActiveClass: 'slider__pagination-bullet--active',
-          type: 'bullets',
-          clickable: true,
-          renderBullet: function (index, className) {
-            // todo
-            return `<span class="${className}">${index + 1}</span>`;
-          },
-        },
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-      },
-      1300: {
-        pagination: {
-          el: '.slider__pagination',
-          bulletClass: 'slider__pagination-bullet',
-          bulletActiveClass: 'slider__pagination-bullet--active',
-          type: 'bullets',
-          clickable: true,
-          renderBullet: function (index, className) {
-            // todo
-            return `<span class="${className}">${index + 1}</span>`;
-          },
-        },
-        slidesPerView: 4,
-        slidesPerGroup: 4,
-      },
-    },
-  });
-})();
+  if (slider) {
+    controlSlider()
 
-// утилитарный модуль - экспортирует общие функции и переменные для всех модулей
-
-(function () {
-  window.utils = {
-    KeyCode: {
-      BACKSPACE: 'Backspace',
-      ESCAPE: 'Escape',
-    },
-  };
+    window.addEventListener('resize', () => controlSlider());
+  }
 })();
 //# sourceMappingURL=main.js.map

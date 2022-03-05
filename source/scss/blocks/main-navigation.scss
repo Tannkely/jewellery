@@ -1,0 +1,134 @@
+.main-navigation {
+  padding-top: 22px;
+  border-top: 1px solid $light-grey;
+
+  @media (max-width: $tablet-max-width) {
+    border-style: none;
+  }
+
+  a:hover {
+    @media (max-width: $tablet-max-width) {
+      background-color: rgba($black-rgb, 0.15);
+    }
+  }
+
+  &--opened {
+    @media (max-width: $tablet-max-width) {
+      position: absolute;
+      top: 172px;
+      left: 0;
+      overflow: scroll;
+      padding-top: 52px;
+      padding-left: 45px;
+      padding-bottom: 80px;
+      width: 100%;
+      height: 100vh;
+      background-color: $brown;
+      z-index: 10;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      padding-top: 35px;
+      padding-bottom: 50px;
+      padding-left: 15px;
+      top: 144px;
+    }
+  }
+
+  &--nojs {
+    @media (max-width: $tablet-max-width) {
+      position: static;
+    }
+  }
+}
+
+.main-navigation__menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-left: 111px;
+  padding-right: 98px;
+  width: 100%;
+  max-width: 1366px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+
+  .main-navigation--closed & {
+    @media (max-width: $tablet-max-width) {
+      display: none;
+    }
+  }
+
+  .main-navigation--opened &,
+  .main-navigation--nojs & {
+    @media (max-width: $tablet-max-width) {
+      display: block;
+      margin-bottom: 40px;
+      padding: 0;
+      font-size: 24px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 31px;
+    }
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 0;
+    }
+
+    &:not(:last-child) {
+      margin-right: 35px;
+
+      @media (max-width: $tablet-max-width) {
+        margin-right: 0;
+        margin-bottom: 26px;
+      }
+    }
+  }
+}
+
+.main-navigation__about-company,
+.main-navigation__login {
+  display: none;
+}
+
+.main-navigation__about-company {
+  .main-navigation--opened &,
+  .main-navigation--nojs & {
+    @media (max-width: $tablet-max-width) {
+      display: block;
+      margin-top: 0;
+      margin-bottom: 40px;
+      padding-left: 0;
+      font-size: 18px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      margin-bottom: 29px;
+    }
+  }
+
+  li:not(:last-child) {
+    @media (max-width: $tablet-max-width) {
+      margin-bottom: 17px;
+    }
+  }
+}
+
+.main-navigation__login {
+  width: max-content;
+
+  .main-navigation--opened &,
+  .main-navigation--nojs & {
+    @media (max-width: $tablet-max-width) {
+      display: block;
+      font-size: 18px;
+    }
+  }
+}
