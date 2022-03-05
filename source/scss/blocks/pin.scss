@@ -65,8 +65,8 @@
   &-list {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr auto 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 23fr 40fr 23fr 23fr;
+    grid-template-rows: 23fr 15fr;
     grid-column-gap: 27px;
     grid-row-gap: 34px;
     padding: 0;
@@ -75,6 +75,8 @@
 }
 
 .pin-item {
+  display: block;
+
   &--wide {
     grid-row: span 2;
   }

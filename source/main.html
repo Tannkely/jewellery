@@ -36,11 +36,11 @@
             placeholder="Type here to search">
         </form>
         <div class="page-header__logo-container">
-          <a aria-label="Логотип интернет-магазина Jewellery" href="#">
+          <span aria-label="Логотип интернет-магазина Jewellery" href="#">
             <svg class="page-header__logo-icon" width="66" height="66">
               <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
             </svg>
-          </a>
+          </span>
         </div>
         <div class="page-header__user-nav user-nav">
           <a class="user-nav__cart" href="#">Cart <span>0</span></a>
@@ -657,14 +657,14 @@
   </main>
 
   <footer class="page-footer">
-    <div class="page-footer__wrapper wrapper">
+    <footer class="page-footer__wrapper wrapper">
       <section class="page-footer__subscription">
         <h2>The good stuff in&nbsp;your inbox</h2>
         <p>News and updates from CH. No&nbsp;spam, we promise.</p>
         <form class="page-footer__form form form--email" method="POST" action="main.html">
           <label class="visually-hidden" for="post-email">E-mail</label>
           <input type="email" id="post-email" name="post-email" placeholder="Your E-mail" required />
-          <button class="page-footer__submit" type="submit" aria-label="submit">
+          <button class="page-footer__submit" type="submit">
             Sign Up&nbsp;&nbsp;
             <svg width="29" height="12">
               <use xlink:href="img/sprite_auto.svg#icon-arrow-right-submit"></use>
@@ -680,94 +680,56 @@
             <a href="#">Ordering & Payment</a>
           </li>
           <li class="page-footer__links-item page-footer__links-item--about">
-            <a href="#">Terms & Conditions</a>
-          </li>
-          <li class="page-footer__links-item page-footer__links-item--terms">
-            <a href="#">Returns & Exchanges</a>
-          </li>
-          <li class="page-footer__links-item page-footer__links-item--stores">
-            <a href="#">Delivery</a>
-          </li>
-          <li class="page-footer__links-item page-footer__links-item--return">
             <a href="#">About CH</a>
           </li>
-          <li class="page-footer__links-item page-footer__links-item--jobs">
+          <li class="page-footer__links-item page-footer__links-item--terms">
+            <a href="#">Terms & Conditions</a>
+          </li>
+          <li class="page-footer__links-item page-footer__links-item--stores">
             <a href="#">Stores & Hours</a>
           </li>
-          <li class="page-footer__links-item page-footer__links-item--delivery">
+          <li class="page-footer__links-item page-footer__links-item--return">
+            <a href="#">Returns & Exchanges</a>
+          </li>
+          <li class="page-footer__links-item page-footer__links-item--jobs">
             <a href="#">Jobs</a>
+          </li>
+          <li class="page-footer__links-item page-footer__links-item--delivery">
+            <a href="#">Delivery</a>
           </li>
           <li class="page-footer__links-item page-footer__links-item--contact">
             <a href="#">Contact Us</a>
           </li>
         </ul>
       </section>
+    </footer>
 
-      <section class="page-footer__social">
-        <h2 class="visually-hidden">We are in social networks</h2>
-        <ul class="page-footer__social-list">
-          <li>
-            <a class="page-footer__social-link page-footer__social-link--fb" href="#">
-              <svg width="8" height="15">
-                <use xlink:href="img/sprite_auto.svg#icon-fb"></use>
-              </svg>
-              <span>Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a class="page-footer__social-link page-footer__social-link--insta" href="#">
-              <svg width="15" height="15">
-                <use xlink:href="img/sprite_auto.svg#icon-insta"></use>
-              </svg>
-              <span>Instagram</span>
-            </a>
-          </li>
-          <li>
-            <a class="page-footer__social-link page-footer__social-link--pinterest" href="#">
-              <svg width="15" height="15">
-                <use xlink:href="img/sprite_auto.svg#icon-pinterest"></use>
-              </svg>
-              <span>Pinterest</span>
-            </a>
-          </li>
-          <li>
-            <a class="page-footer__social-link page-footer__social-link--twiter" href="#">
-              <svg width="15" height="13">
-                <use xlink:href="img/sprite_auto.svg#icon-twiter"></use>
-              </svg>
-              <span>Twitter</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </footer>
 
-  <section class="login modal modal--login">
-    <div class="login__wrapper">
-      <h2>Log In</h2>
-      <a href="main.html" class="modal__close modal__close--login" aria-label="Close modal window">
-        <svg width="20" height="20">
-          <use xlink:href="img/sprite_auto.svg#icon-close"></use>
-        </svg>
-      </a>
+    <section class="login modal modal--login">
+      <div class="login__wrapper">
+        <h2>Log In</h2>
+        <a href="main.html" class="modal__close modal__close--login" aria-label="Close modal window">
+          <svg width="20" height="20">
+            <use xlink:href="img/sprite_auto.svg#icon-close"></use>
+          </svg>
+        </a>
 
-      <form class="login__form" action="https://echo.htmlacademy.ru" method="POST">
-        <label class="visually-hidden" for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Your E-mail" required />
-        <label class="visually-hidden" for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required />
+        <form class="login__form" action="https://echo.htmlacademy.ru" method="POST">
+          <label class="visually-hidden" for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="Your E-mail" required />
+          <label class="visually-hidden" for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required />
 
-        <a class="login__form-link" href="#">Forgot your password?</a>
-        <button class="button button--brown" type="submit">Log In</button>
+          <a class="login__form-link" href="#">Forgot your password?</a>
+          <button class="button button--brown" type="submit">Log In</button>
 
-        <p class="login__form-text">Don’t have an account? <a href="#">Sign up</a></p>
-      </form>
-    </div>
-  </section>
+          <p class="login__form-text">Don’t have an account? <a href="#">Sign up</a></p>
+        </form>
+      </div>
+    </section>
 
-  <script src="js/vendor.js"></script>
-  <script src="js/main.js"></script>
+    <script src="js/vendor.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

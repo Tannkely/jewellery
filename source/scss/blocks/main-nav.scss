@@ -17,6 +17,8 @@
     display: flex;
     // grid-template-columns: repeat(5, auto);
     text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 35px;
     // margin: 0 0 0 10px;
     overflow-x: auto;
